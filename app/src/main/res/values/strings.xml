@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NGO Connect App</string>
+    <string name="ngo_reg">Register as NGO</string>
+    <string name="user_ngo">Register as User</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="search">Search</string>
+</resources>
