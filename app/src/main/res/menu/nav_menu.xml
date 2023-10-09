@@ -2,23 +2,30 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-    <item
-        android:id="@+id/nav_profile"
-        android:title="Profile"/>
-    <item
-        android:id="@+id/nav_myDonations"
-        android:title="My Donations"/>
 
-    <item
-        android:id="@+id/nav_volunteer"
-        android:title="Join as a Volunteer"/>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_profile"
+            android:title="Profile" />
+        <item
+            android:id="@+id/nav_myDonations"
+            android:title="My Donations" />
 
-    <item
-        android:id="@+id/nav_share"
-        android:title="Share"/>
-    <item
-        android:id="@+id/nav_logout"
-        android:title="Logout"/>
+        <item
+            android:id="@+id/nav_volunteer"
+            android:title="Join as a Volunteer" />
+
+        <item
+            android:id="@+id/nav_logout"
+            android:title="Logout" />
+        <item
+            android:id="@+id/nav_share"
+            android:title="Share" />
+        <item
+            android:id="@+id/nav_aboutUs"
+            android:title="About Us" />
+
+    </group>
 
 
 </menu>
