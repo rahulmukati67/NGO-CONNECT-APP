@@ -29,7 +29,7 @@
         <item name="android:layout_marginBottom">12dp</item>
     </style>
     <style name="Navigation_item_text" parent="">
-        <item name="android:textSize"> 20sp</item>
+        <item name="android:textSize"> 22sp</item>
     </style>
 
 </resources>

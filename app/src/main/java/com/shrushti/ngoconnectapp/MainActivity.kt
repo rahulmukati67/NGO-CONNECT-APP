@@ -1,17 +1,12 @@
 package com.shrushti.ngoconnectapp
 
-import android.content.Intent
-import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.MenuItem
-import android.view.View
+import android.widget.ImageButton
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.navigation.NavigationView
 import com.shrushti.ngoconnectapp.databinding.ActivityMainBinding
 
@@ -22,9 +17,10 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
+        setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
+
         binding.navView.setNavigationItemSelectedListener(this)
 
         toggle = ActionBarDrawerToggle(this, binding.drawerLayout, R.string.open, R.string.close)
@@ -37,6 +33,13 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
         if(savedInstanceState == null){
             replaceFragment(HomeFragment(),"")
         }
+
+        val headerLayout = binding.navView.getHeaderView(0)
+        val imgBack = headerLayout.findViewById<ImageButton>(R.id.imgBack)
+        imgBack.setOnClickListener {
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
+        }
+
 
     }
 
@@ -51,14 +54,6 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true
-    }
-
-    override fun onBackPressed() {
-        if(binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            binding.drawerLayout.closeDrawer(GravityCompat.START)
-        }else{
-            onBackPressedDispatcher.onBackPressed()
-        }
     }
 
     private fun replaceFragment(fragment: Fragment, title:String){

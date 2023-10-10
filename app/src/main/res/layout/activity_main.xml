@@ -54,7 +54,6 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_menu"
-        app:elevation="15dp"
         app:itemTextAppearance="@style/Navigation_item_text"
         app:itemBackground="@color/light_blue"
         app:itemTextColor="@color/item_text_color"
