@@ -1,4 +1,4 @@
-package com.shrushti.ngoconnectapp
+package com.project.ngoconnectapp
 
 data class Ngo_data(
     var uniqueId : String? = null,

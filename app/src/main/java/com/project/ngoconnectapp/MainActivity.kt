@@ -1,14 +1,14 @@
-package com.shrushti.ngoconnectapp
+package com.project.ngoconnectapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.ImageButton
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
-import com.shrushti.ngoconnectapp.databinding.ActivityMainBinding
+import com.project.ngoconnectapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener {
     private lateinit var binding: ActivityMainBinding

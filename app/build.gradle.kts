@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.shrushti.ngoconnectapp"
+    namespace = "com.project.ngoconnectapp"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.shrushti.ngoconnectapp"
+        applicationId = "com.project.ngoconnectapp"
         minSdk = 22
         targetSdk = 33
         versionCode = 1

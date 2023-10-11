@@ -13,13 +13,10 @@
         android:theme="@style/Theme.NGOConnectApp"
         tools:targetApi="31">
         <activity
-            android:name=".ProfileActivity"
+            android:name="com.project.ngoconnectapp.RegistrationActivity"
             android:exported="false" />
         <activity
-            android:name=".RegistrationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name="com.project.ngoconnectapp.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

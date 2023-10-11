@@ -1,4 +1,4 @@
-package com.shrushti.ngoconnectapp
+package com.project.ngoconnectapp
 
 import android.view.LayoutInflater
 import android.view.View
@@ -17,12 +17,12 @@ class NGOAdapter(private var ngoList: ArrayList<Ngo_data>) : RecyclerView.Adapte
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NGOAdapter.NgoViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NgoViewHolder {
         val inflater = LayoutInflater.from(parent.context).inflate(R.layout.ngo_view_layout,parent,false)
         return NgoViewHolder(inflater)
     }
 
-    override fun onBindViewHolder(holder: NGOAdapter.NgoViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: NgoViewHolder, position: Int) {
         holder.name.text = ngoList[position].name
         holder.type.text = ngoList[position].ngoType
     }
