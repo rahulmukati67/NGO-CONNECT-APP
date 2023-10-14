@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/NGODetailPage_bg"
+    android:background="@drawable/ngo_detail_page_bg"
     tools:context=".NGODetailPage">
 
 </androidx.constraintlayout.widget.ConstraintLayout>
