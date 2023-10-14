@@ -8,3 +8,4 @@ data class Ngo_data(
     var ngoType : String? = null,
 
 )
+
