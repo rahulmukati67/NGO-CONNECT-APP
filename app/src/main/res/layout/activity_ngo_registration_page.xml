@@ -1,9 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ngoregisterpage"
     tools:context=".NgoRegistrationPage">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:id="@+id/uniqueId"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="205dp"
+        android:hint="Enter ID"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey"
+        android:textSize="18sp">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/ngoType"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/uniqueId"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="-50dp"
+        android:hint="Type Of Ngo"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey"
+        android:textSize="16sp">
+    </EditText>
+    <EditText
+        android:id="@+id/ngoName"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/ngoType"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="-50dp"
+        android:hint="Name of Ngo"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey"
+        android:textSize="16sp">
+    </EditText>
+    <EditText
+        android:id="@+id/ngoPhone_no"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/ngoName"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="-50dp"
+        android:hint="Mobile number"
+        android:inputType="number"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey"
+        android:textSize="16sp">
+    </EditText>
+    <EditText
+        android:id="@+id/ngoEmailId"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/ngoPhone_no"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="-50dp"
+        android:hint=" Enter Email Id"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey"
+        android:textSize="16sp">
+    </EditText>
+
+    <EditText
+        android:id="@+id/ngoWeb"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/ngoEmailId"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="-50dp"
+        android:hint=" Enter Website link"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey"
+        android:textSize="16sp">
+    </EditText>
+
+    <Button
+        android:id="@+id/btnRegAsNgo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="20dp"
+        android:layout_alignBottom="@id/ngoWeb"
+        android:layout_marginBottom="-90dp"
+        android:text="Register" />
+
+
+</RelativeLayout>

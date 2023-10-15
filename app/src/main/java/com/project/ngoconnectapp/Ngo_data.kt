@@ -6,6 +6,7 @@ data class Ngo_data(
     var phoneNo : String? = null,
     var emailId :String? = null,
     var ngoType : String? = null,
+    var ngoWeb : String?=null,
 
 )
 
