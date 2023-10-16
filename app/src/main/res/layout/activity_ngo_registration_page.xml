@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Register As User"
+        android:text="Register As Ngo"
         android:textColor="#095C93"
         android:textSize="24dp"
         android:textStyle="bold"
