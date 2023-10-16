@@ -6,8 +6,49 @@
     android:background="@drawable/registerasuser"
     tools:context=".UserRegistrationPage">
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/userNumber"
+        android:layout_marginTop="240dp"
+        android:hint="+91**********"
+        android:layout_marginLeft="140dp"
+        android:textSize="20sp"
+        android:inputType="number">
+    </EditText>
 
+    <Button
+        android:id="@+id/btncontinue"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/userNumber"
+        android:layout_marginLeft="74dp"
+        android:layout_marginBottom="-227dp"
+        android:text="Continue ->"
+        android:textSize="18sp">
 
+    </Button>
 
+    <Button
+        android:id="@+id/btngooglesignin2"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/userNumber"
+        android:layout_marginLeft="74dp"
+        android:layout_marginBottom="-150dp"
+        android:text="Sign in with Google"
+        android:textSize="18sp">
+
+    </Button>
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="180dp"
+        android:src="@drawable/handd"
+        android:layout_marginLeft="80dp"
+        android:layout_alignParentBottom="true"
+        >
+
+    </ImageView>
 
 </RelativeLayout>
