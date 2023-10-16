@@ -12,7 +12,20 @@
           "package_name": "com.project.ngoconnectapp"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "132639479972-602lhmoi7nhcn4nk580nsrbp1jfmuhli.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.project.ngoconnectapp",
+            "certificate_hash": "ccf6aaa3c70e2657c9b776c574bd27ab23340c61"
+          }
+        },
+        {
+          "client_id": "132639479972-ecvlmdsi49lcfqf9tvsj2iuf5l9734tl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDrI_QbRowh3zHerVIFHmiqL9fHcOVtB8Q"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "132639479972-ecvlmdsi49lcfqf9tvsj2iuf5l9734tl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
