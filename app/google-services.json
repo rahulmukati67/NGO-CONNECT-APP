@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "132639479972",
+    "project_id": "ngo-connect-app",
+    "storage_bucket": "ngo-connect-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:132639479972:android:bfe2e40013c4802c7c2e31",
+        "android_client_info": {
+          "package_name": "com.project.ngoconnectapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrI_QbRowh3zHerVIFHmiqL9fHcOVtB8Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
