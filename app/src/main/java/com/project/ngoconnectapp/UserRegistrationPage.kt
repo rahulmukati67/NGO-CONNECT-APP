@@ -3,7 +3,9 @@ package com.project.ngoconnectapp
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -11,8 +13,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
+import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.PhoneAuthCredential
+import com.google.firebase.auth.PhoneAuthOptions
+import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.database.FirebaseDatabase
 
 class UserRegistrationPage : AppCompatActivity() {
@@ -20,6 +26,9 @@ class UserRegistrationPage : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
     private  lateinit var btngooglesignin:Button
+    private lateinit var btncontinue:Button
+    private lateinit var userNumber:EditText
+    private val app_id = "132639479972-ecvlmdsi49lcfqf9tvsj2iuf5l9734tl.apps.googleusercontent.com"
 
     private lateinit var googleSignInOptions: GoogleSignInOptions
 
@@ -29,8 +38,11 @@ class UserRegistrationPage : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         btngooglesignin = findViewById(R.id.btngooglesignin)
+        btncontinue = findViewById(R.id.btncontinue)
         database = FirebaseDatabase.getInstance()
-        val  app_id = "132639479972-ecvlmdsi49lcfqf9tvsj2iuf5l9734tl.apps.googleusercontent.com"
+        userNumber = findViewById(R.id.userNumber)
+        val number = userNumber.text
+
         googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(app_id)
             .requestEmail()
@@ -38,7 +50,15 @@ class UserRegistrationPage : AppCompatActivity() {
         btngooglesignin.setOnClickListener {
             signInWithGoogle()
         }
+        btncontinue.setOnClickListener(View.OnClickListener {
+            val intent = Intent(this , OtpActivity::class.java)
+            intent.putExtra("phoneNumberr" , number)
+//            Toast.makeText(this, "done $number",Toast.LENGTH_LONG).show()
+            startActivity(intent)
+        })
+
     }
+
 
     private fun signInWithGoogle() {
         val signInIntent = GoogleSignIn.getClient(this, googleSignInOptions).signInIntent
@@ -77,7 +97,7 @@ class UserRegistrationPage : AppCompatActivity() {
                             val intent = Intent(this, MainActivity::class.java)
                             startActivity(intent)
                         } else {
-                            Toast.makeText(this, "unable to login try again", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "unable to login try again", Toast.LENGTH_LONG).show()
 
                         }
                     }
@@ -92,6 +112,7 @@ class UserRegistrationPage : AppCompatActivity() {
         private const val RC_SIGN_IN = 9001
     }
 }
+
 
 data class User(
     val userId: String? = "",
