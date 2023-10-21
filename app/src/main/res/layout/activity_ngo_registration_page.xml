@@ -15,7 +15,7 @@
         android:gravity="center"
         android:text="Register As Ngo"
         android:textColor="#095C93"
-        android:textSize="24dp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,11 +32,9 @@
         android:gravity="center"
         android:text="Ngo Unique Id"
         android:textColor="#095C93"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/ngoUniqueId"
-        app:layout_constraintHorizontal_bias="0.44"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/ngoid2"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <TextView
@@ -47,11 +45,10 @@
         android:gravity="center"
         android:text="Ngo Name"
         android:textColor="#095C93"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/ngoUniqueId"
-        app:layout_constraintHorizontal_bias="0.325"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/ngoName"
+        app:layout_constraintStart_toStartOf="@+id/ngoid4"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <TextView
@@ -62,11 +59,10 @@
         android:gravity="center"
         android:text="Ngo Type"
         android:textColor="#095C93"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/ngoUniqueId"
-        app:layout_constraintHorizontal_bias="0.274"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/ngoType"
+        app:layout_constraintStart_toStartOf="@+id/ngoid6"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <TextView
@@ -75,13 +71,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="396dp"
         android:gravity="center"
-        android:text="website"
+        android:text="Website"
         android:textColor="#095C93"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/ngoUniqueId"
-        app:layout_constraintHorizontal_bias="0.274"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/NgoWebsite"
+        app:layout_constraintStart_toStartOf="@+id/ngoid5"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <TextView
@@ -92,7 +87,7 @@
         android:gravity="center"
         android:text="Email Id"
         android:textColor="#095C93"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/ngoUniqueId"
         app:layout_constraintHorizontal_bias="0.263"
@@ -107,11 +102,10 @@
         android:gravity="center"
         android:text="Phone Number"
         android:textColor="#095C93"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/ngoUniqueId"
-        app:layout_constraintHorizontal_bias="0.435"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/ngoContactNumber"
+        app:layout_constraintStart_toStartOf="@+id/ngoid3"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <EditText
@@ -120,13 +114,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="148dp"
         android:hint="Enter Unique Id"
+        android:inputType="text|textNoSuggestions"
         android:lines="1"
-        android:maxWidth="195dp"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintHorizontal_bias="0.715"
-        app:layout_constraintStart_toStartOf="parent"
+        android:maxWidth="195dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/ngoName"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -137,10 +130,8 @@
         android:hint="Enter NGO Name"
         android:lines="1"
         android:maxWidth="195dp"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.747"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/ngoContactNumber"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -152,10 +143,8 @@
         android:inputType="number"
         android:lines="1"
         android:maxWidth="195dp"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.694"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/ngoType"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -166,10 +155,8 @@
         android:hint="www.example.com"
         android:lines="1"
         android:maxWidth="250dp"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.781"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/ngoEmail"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -180,10 +167,8 @@
         android:hint="Type Of Ngo"
         android:lines="1"
         android:maxWidth="195dp"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.68"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/NgoWebsite"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -192,9 +177,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="452dp"
         android:hint="username@gmail.com"
+        android:inputType="text|textEmailAddress"
         android:lines="1"
         android:maxWidth="250dp"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.83"
         app:layout_constraintStart_toStartOf="parent"

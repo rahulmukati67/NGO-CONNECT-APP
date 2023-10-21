@@ -23,7 +23,7 @@ class OtpActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         btnverify = findViewById(R.id.btnverify)
 
-        val Number = intent.getStringExtra("phoneNumberr")
+        val Number = intent.getStringExtra("phoneNumber")
 
         Toast.makeText(this, "Code sent to $Number",Toast.LENGTH_LONG).show()
 

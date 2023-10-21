@@ -13,12 +13,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
-import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.auth.PhoneAuthCredential
-import com.google.firebase.auth.PhoneAuthOptions
-import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.database.FirebaseDatabase
 
 class UserRegistrationPage : AppCompatActivity() {
@@ -52,8 +48,7 @@ class UserRegistrationPage : AppCompatActivity() {
         }
         btncontinue.setOnClickListener(View.OnClickListener {
             val intent = Intent(this , OtpActivity::class.java)
-            intent.putExtra("phoneNumberr" , number)
-//            Toast.makeText(this, "done $number",Toast.LENGTH_LONG).show()
+            intent.putExtra("phoneNumber" , number)
             startActivity(intent)
         })
 
@@ -113,9 +108,3 @@ class UserRegistrationPage : AppCompatActivity() {
     }
 }
 
-
-data class User(
-    val userId: String? = "",
-    val username: String? = "",
-    val email: String? = ""
-)
