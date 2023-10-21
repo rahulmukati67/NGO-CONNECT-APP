@@ -7,10 +7,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class HomeFragment : Fragment() {
 
     private lateinit var ngoAdapter: NGOAdapter
+
 
 
     override fun onCreateView(
@@ -24,17 +30,50 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val ngoList = arrayListOf<Ngo_data>()
-        ngoList.add(Ngo_data("1234","Abc","12345","abc@gmail.com","AnimalWelfare"))
-        ngoList.add(Ngo_data("123466","Xyz","12345","abc@gmail.com","AnimalWelfare"))
-        ngoList.add(Ngo_data("1234","Efg","12345","abc@gmail.com","AnimalWelfare"))
-        ngoList.add(Ngo_data("1234","Hij","12345","abc@gmail.com","AnimalWelfare"))
 
         val rvNGOs = view.findViewById<RecyclerView>(R.id.rvNGOs)
         rvNGOs.layoutManager = LinearLayoutManager(context)
         rvNGOs.setHasFixedSize(true)
-        ngoAdapter = NGOAdapter(ngoList)
-        rvNGOs.adapter = ngoAdapter
+
+        val database = Firebase.database
+        val dbRef =  database.getReference("ngoDetails")
+
+        val ngoList = arrayListOf<Ngo_data>()
+        val ngoData1 = Ngo_data("1234","Abc","12345","abc@gmail.com","AnimalWelfare","www.abc.com")
+        val ngoData2 = Ngo_data("123466","Xyz","12345","abc@gmail.com","AnimalWelfare","www.xyz.com")
+        val ngoData3 = Ngo_data("12345689","Efg","12345","abc@gmail.com","AnimalWelfare","www.efg.com")
+        val ngoData4 = Ngo_data("12343333","Hij","12345","abc@gmail.com","AnimalWelfare","www.hij.com")
+
+        dbRef.child(ngoData1.uniqueId.toString()).setValue(ngoData1)
+        dbRef.child(ngoData2.uniqueId.toString()).setValue(ngoData2)
+        dbRef.child(ngoData3.uniqueId.toString()).setValue(ngoData3)
+        dbRef.child(ngoData4.uniqueId.toString()).setValue(ngoData4)
+
+        dbRef.addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                ngoList.clear()
+                if(snapshot.exists()){
+                    for(ngoSnap in snapshot.children){
+                        val ngoData = ngoSnap.getValue(Ngo_data::class.java)
+                        ngoList.add(ngoData!!)
+                    }
+                    ngoAdapter = NGOAdapter(ngoList)
+                    rvNGOs.adapter = ngoAdapter
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
+
+
+
+
+
+
+
     }
 
 }

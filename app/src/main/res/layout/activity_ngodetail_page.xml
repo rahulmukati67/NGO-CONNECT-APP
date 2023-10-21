@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/ngo_detail_page_bg"
+    android:orientation="vertical"
     tools:context=".NGODetailPage">
 
     <ImageView
@@ -14,75 +14,71 @@
         android:layout_height="250dp"
         android:layout_gravity="center"
         android:layout_marginTop="25dp"
-        android:src="@drawable/download">
-
-    </ImageView>
+        android:src="@drawable/download" />
 
 
-     <TextView
-         android:layout_width="match_parent"
-         android:layout_height="40dp"
-         android:text="Animal Care center"
-         android:textSize="36sp"
-         android:textStyle="bold|italic"
-         android:gravity="center"
-         android:textColor="#0C5A8F"
-         android:layout_marginTop="45dp"
-         android:id="@+id/ngo_name"
-         >
+    <TextView
+        android:id="@+id/ngo_name"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="45dp"
+        android:gravity="center"
+        android:text="Animal Care center"
+        android:textColor="#0C5A8F"
+        android:textSize="36sp"
+        android:textStyle="bold|italic">
 
-     </TextView>
+    </TextView>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="25dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp">
+
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
-            android:src="@drawable/type"
-            >
+            android:src="@drawable/baseline_home_24">
 
         </ImageView>
+
         <TextView
+            android:id="@+id/ngo_type"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
             android:text="Animal hospital"
-            android:textSize="25sp"
-            android:layout_marginLeft="20dp"
             android:textColor="#0C5A8F"
-            android:id="@+id/ngo_type"
-            >
-        </TextView>
+            android:textSize="25sp" />
 
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="15dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
-            android:src="@drawable/call"
-            >
+            android:src="@drawable/baseline_call_24">
 
         </ImageView>
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:text="+917223874126"
-            android:textSize="25sp"
-            android:gravity="center"
-            android:layout_marginLeft="20dp"
-            android:textColor="#0C5A8F"
             android:id="@+id/ngo_phone_no"
-            >
-        </TextView>
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="+917223874126"
+            android:textColor="#0C5A8F"
+            android:textSize="25sp" />
 
 
     </LinearLayout>
@@ -90,62 +86,57 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="15dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
-            android:src="@drawable/baseline_email_24"
-            >
+            android:src="@drawable/baseline_email_24">
 
         </ImageView>
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:text="ngohelp@gmail.com"
-            android:textSize="25sp"
-            android:gravity="center"
-            android:layout_marginLeft="20dp"
-            android:textColor="#0C5A8F"
             android:id="@+id/ngo_email"
-            >
-        </TextView>
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="ngohelp@gmail.com"
+            android:textColor="#0C5A8F"
+            android:textSize="25sp"></TextView>
 
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="15dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
-            android:src="@drawable/web"
-            >
+            android:src="@drawable/baseline_web_24">
 
         </ImageView>
+
         <TextView
+            android:id="@+id/ngo_web"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:text="www.ngohelp.com"
-            android:textSize="25sp"
-            android:gravity="center"
             android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="www.ngohelp.com"
             android:textColor="#0C5A8F"
-            android:id="@+id/ngo_web"
-            >
-        </TextView>
+            android:textSize="25sp"></TextView>
 
 
     </LinearLayout>
-
-
-
 
 
 </LinearLayout>
