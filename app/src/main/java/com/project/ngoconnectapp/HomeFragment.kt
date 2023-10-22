@@ -1,5 +1,6 @@
 package com.project.ngoconnectapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -59,6 +60,19 @@ class HomeFragment : Fragment() {
                         ngoList.add(ngoData!!)
                     }
                     ngoAdapter = NGOAdapter(ngoList)
+
+                    ngoAdapter.setItemClickListener(object : NGOAdapter.OnItemClickListener{
+                        override fun onClick(position: Int) {
+                            val intent = Intent(activity, NGODetailPage::class.java)
+                            intent.putExtra("name", ngoList[position].name)
+                            intent.putExtra("type", ngoList[position].ngoType)
+                            intent.putExtra("phoneNo", ngoList[position].phoneNo)
+                            intent.putExtra("email", ngoList[position].emailId)
+                            intent.putExtra("website",ngoList[position].ngoWeb)
+                            startActivity(intent)
+                        }
+
+                    })
                     rvNGOs.adapter = ngoAdapter
                 }
             }
@@ -68,6 +82,7 @@ class HomeFragment : Fragment() {
             }
 
         })
+
 
 
 

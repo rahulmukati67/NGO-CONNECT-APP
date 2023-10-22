@@ -7,19 +7,25 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class NGOAdapter(private var ngoList: ArrayList<Ngo_data>) : RecyclerView.Adapter<NGOAdapter.NgoViewHolder>() {
+    private lateinit var mListener : OnItemClickListener
 
-    inner class NgoViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView){
+    inner class NgoViewHolder(itemView:View, listener : OnItemClickListener) : RecyclerView.ViewHolder(itemView){
         val name : TextView
         val  type : TextView
+        private val cardView : com.google.android.material.card.MaterialCardView
         init{
             name = itemView.findViewById(R.id.tv_ngo_name)
             type = itemView.findViewById(R.id.tv_ngo_type)
+            cardView = itemView.findViewById(R.id.cvNgoDetail)
+            cardView.setOnClickListener {
+                listener.onClick(adapterPosition)
+            }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NgoViewHolder {
         val inflater = LayoutInflater.from(parent.context).inflate(R.layout.ngo_view_layout,parent,false)
-        return NgoViewHolder(inflater)
+        return NgoViewHolder(inflater, mListener)
     }
 
     override fun onBindViewHolder(holder: NgoViewHolder, position: Int) {
@@ -29,6 +35,13 @@ class NGOAdapter(private var ngoList: ArrayList<Ngo_data>) : RecyclerView.Adapte
 
     override fun getItemCount(): Int {
         return ngoList.size
+    }
+
+    interface OnItemClickListener{
+        fun onClick(position:Int)
+    }
+    fun setItemClickListener(listener : OnItemClickListener){
+        mListener = listener
     }
 
 }
