@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.121"></TextView>
+        app:layout_constraintVertical_bias="0.121"/>
 
     <EditText
         android:id="@+id/userNumber"
@@ -33,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"></EditText>
+        app:layout_constraintVertical_bias="1.0"/>
 
     <Button
         android:id="@+id/btncontinue"
@@ -41,6 +41,8 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/userNumber"
         android:layout_marginBottom="36dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:text="@string/otp"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
@@ -66,20 +68,26 @@
 
     </TextView>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btngooglesignin"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/userNumber"
         android:layout_marginBottom="148dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:text="@string/googleSignIn"
         android:textSize="18sp"
+        app:icon="@drawable/google_logo"
+        app:iconGravity="start"
+        app:iconSize="20dp"
+        app:iconTint="@null"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent">
 
-    </Button>
+    </com.google.android.material.button.MaterialButton>
 
     <ImageView
         android:id="@+id/imageView2"

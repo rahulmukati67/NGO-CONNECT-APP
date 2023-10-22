@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "132639479972",
+    "firebase_url": "https://ngo-connect-app-default-rtdb.firebaseio.com",
     "project_id": "ngo-connect-app",
     "storage_bucket": "ngo-connect-app.appspot.com"
   },
@@ -19,6 +20,14 @@
           "android_info": {
             "package_name": "com.project.ngoconnectapp",
             "certificate_hash": "ccf6aaa3c70e2657c9b776c574bd27ab23340c61"
+          }
+        },
+        {
+          "client_id": "132639479972-p237mcdas4296cd50ht7u8j5bu12ofrp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.project.ngoconnectapp",
+            "certificate_hash": "68d9a795b81d5f5594bd81326ae2356560ee80c2"
           }
         },
         {
