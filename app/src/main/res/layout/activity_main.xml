@@ -59,7 +59,9 @@
         app:itemTextAppearance="@style/Navigation_item_text"
         app:itemBackground="@color/light_blue"
         app:itemTextColor="@color/item_text_color"
-        app:itemVerticalPadding="8dp"
+        app:itemVerticalPadding="9dp"
+        app:itemIconTint="@color/item_text_color"
+        app:itemIconSize="25dp"
         android:theme="@style/NavigationTheme">
 
     </com.google.android.material.navigation.NavigationView>

@@ -7,23 +7,51 @@
         <item
             android:id="@+id/nav_profile"
             android:title="Profile" />
-        <item
-            android:id="@+id/nav_myDonations"
-            android:title="My Donations" />
 
-        <item
-            android:id="@+id/nav_volunteer"
-            android:title="Join as a Volunteer" />
+        <item android:title="User">
+            <menu>
+                <item
+                    android:id="@+id/nav_myDonations"
+                    android:icon="@drawable/baseline_attach_money_24"
+                    android:title="My Donations" />
 
-        <item
-            android:id="@+id/nav_logout"
-            android:title="Logout" />
-        <item
-            android:id="@+id/nav_share"
-            android:title="Share" />
-        <item
-            android:id="@+id/nav_aboutUs"
-            android:title="About Us" />
+                <item
+                    android:id="@+id/nav_volunteer"
+                    android:icon="@drawable/baseline_connect_without_contact_24"
+                    android:title="Join as a Volunteer" />
+
+                <item
+                    android:id="@+id/nav_find"
+                    android:icon="@drawable/baseline_location_on_24"
+                    android:title="Find nearest NGO" />
+
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/baseline_keyboard_tab_24"
+                    android:title="Logout" />
+            </menu>
+        </item>
+
+        <item android:title="Communicate">
+            <menu>
+                <item
+                    android:id="@+id/nav_share"
+                    android:icon="@drawable/baseline_share_24"
+                    android:title="Share" />
+
+                <item
+                    android:id="@+id/nav_rateApp"
+                    android:icon="@drawable/baseline_star_rate_24"
+                    android:title="Rate the App" />
+
+                <item
+                    android:id="@+id/nav_aboutUs"
+                    android:icon="@drawable/baseline_app_registration_24"
+                    android:title="About Us" />
+
+            </menu>
+
+        </item>
 
     </group>
 
