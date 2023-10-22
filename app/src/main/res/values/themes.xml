@@ -4,7 +4,6 @@
         <!-- Customize your light theme here. -->
          <item name="colorPrimary">@color/bg_color</item>
         <item name="android:statusBarColor">@color/bg_color</item>
-        <item name="title"></item>
     </style>
 
     <style name="Theme.NGOConnectApp" parent="Base.Theme.NGOConnectApp" />
@@ -29,7 +28,7 @@
         <item name="android:layout_marginBottom">12dp</item>
     </style>
     <style name="Navigation_item_text" parent="">
-        <item name="android:textSize"> 22sp</item>
+        <item name="android:textSize"> 21sp</item>
     </style>
 
 </resources>
