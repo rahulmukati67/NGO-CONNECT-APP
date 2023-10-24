@@ -22,7 +22,7 @@ class UserRegistrationPage : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
     private  lateinit var btngooglesignin:Button
-    private lateinit var btncontinue:Button
+    private lateinit var btnContinue:Button
     private lateinit var userNumber:EditText
     private val app_id = "132639479972-ecvlmdsi49lcfqf9tvsj2iuf5l9734tl.apps.googleusercontent.com"
 
@@ -34,10 +34,9 @@ class UserRegistrationPage : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         btngooglesignin = findViewById(R.id.btngooglesignin)
-        btncontinue = findViewById(R.id.btncontinue)
+        btnContinue = findViewById(R.id.btnContinue)
         database = FirebaseDatabase.getInstance()
         userNumber = findViewById(R.id.userNumber)
-        val number = userNumber.text
 
         googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(app_id)
@@ -46,11 +45,19 @@ class UserRegistrationPage : AppCompatActivity() {
         btngooglesignin.setOnClickListener {
             signInWithGoogle()
         }
-        btncontinue.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this , OtpActivity::class.java)
-            intent.putExtra("phoneNumber" , number)
-            startActivity(intent)
-        })
+        btnContinue.setOnClickListener {
+            var number = userNumber.text.trim().toString()
+            if(number.isNotEmpty() && number.length== 10){
+                number = "+91$number"
+                val intent = Intent(this , OtpActivity::class.java)
+                intent.putExtra("phoneNumber" , number)
+                startActivity(intent)
+            }
+            else{
+                Toast.makeText(this, "Please enter a valid number !", Toast.LENGTH_SHORT).show()
+            }
+
+        }
 
     }
 
@@ -92,7 +99,7 @@ class UserRegistrationPage : AppCompatActivity() {
                             val intent = Intent(this, MainActivity::class.java)
                             startActivity(intent)
                         } else {
-                            Toast.makeText(this, "unable to login try again", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this, "Unable to login, try again", Toast.LENGTH_LONG).show()
 
                         }
                     }
