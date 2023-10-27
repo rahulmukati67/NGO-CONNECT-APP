@@ -10,16 +10,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
-import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.auth.PhoneAuthCredential
-import com.google.firebase.auth.PhoneAuthOptions
-import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.database.FirebaseDatabase
 import com.project.ngoconnectapp.databinding.ActivityUserRegistrationPageBinding
-import java.util.concurrent.TimeUnit
-
 class UserRegistrationPage : AppCompatActivity() {
 
     private lateinit var binding: ActivityUserRegistrationPageBinding
@@ -43,9 +37,11 @@ class UserRegistrationPage : AppCompatActivity() {
             .requestIdToken(app_id)
             .requestEmail()
             .build()
+
         binding.btngooglesignin.setOnClickListener {
             signInWithGoogle()
         }
+
         binding.btnContinue.setOnClickListener {
             var number = binding.userNumber.text.toString().trim()
             if (number.isNotEmpty() && number.length == 10) {
@@ -55,7 +51,7 @@ class UserRegistrationPage : AppCompatActivity() {
                 intent.putExtra("phoneNumber", number)
                 startActivity(intent)
             } else {
-                Toast.makeText(this, "Please enter a valid number !", Toast.LENGTH_SHORT).show()
+                binding.userNumber.error =" PLease enter a valid number"
             }
 
         }

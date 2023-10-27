@@ -16,7 +16,7 @@
         android:layout_margin="10dp"
         app:cardBackgroundColor="@color/bg_color"
         app:cardElevation="20dp"
-        app:cardMaxElevation="20dp"
+        app:cardMaxElevation="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

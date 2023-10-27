@@ -20,7 +20,6 @@ class OtpActivity : AppCompatActivity() {
     private lateinit var storedVerificationId: String
     private lateinit var database: FirebaseDatabase
     private lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
-    private lateinit var callback: PhoneAuthProvider.OnVerificationStateChangedCallbacks
     private lateinit var number: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,9 +39,9 @@ class OtpActivity : AppCompatActivity() {
             signInWithPhoneAuthenticationCredential(credential)
         }
 
-//        binding.btnResend.setOnClickListener {
-//            reSendOtp()
-//        }
+        binding.btnResend.setOnClickListener {
+            reSendOtp()
+        }
 
     }
 
@@ -76,16 +75,16 @@ class OtpActivity : AppCompatActivity() {
             }
     }
 
-//    private fun reSendOtp() {
-//        val options = PhoneAuthOptions.newBuilder(auth)
-//            .setPhoneNumber(number) // Phone number to verify
-//            .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
-//            .setActivity(this) // Activity (for callback binding)
-//            .setCallbacks(callback) // OnVerificationStateChangedCallbacks
-//            .setForceResendingToken(resendToken) // ForceResendingToken from callbacks
-//            .build()
-//        PhoneAuthProvider.verifyPhoneNumber(options)
-//    }
+    private fun reSendOtp() {
+        val options = PhoneAuthOptions.newBuilder(auth)
+            .setPhoneNumber(number) // Phone number to verify
+            .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
+            .setActivity(this) // Activity (for callback binding)
+            .setCallbacks(callbacks) // OnVerificationStateChangedCallbacks
+            .setForceResendingToken(resendToken) // ForceResendingToken from callbacks
+            .build()
+        PhoneAuthProvider.verifyPhoneNumber(options)
+    }
 
     private val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         override fun onVerificationCompleted(credential: PhoneAuthCredential) {

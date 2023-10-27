@@ -113,8 +113,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
 
             R.id.nav_logout->{
-//                val googleSignInClient = GoogleSignIn.getClient(this,GoogleSignInOptions.DEFAULT_SIGN_IN)
-//                googleSignInClient.signOut()
+                val googleSignInClient = GoogleSignIn.getClient(this,GoogleSignInOptions.DEFAULT_SIGN_IN)
+                googleSignInClient.signOut()
                 auth.signOut()
                 Toast.makeText(this,"Successfully Logged Out !",Toast.LENGTH_SHORT).show()
                 tvUserName.text ="Login/Register"

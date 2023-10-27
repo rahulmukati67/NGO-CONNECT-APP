@@ -16,14 +16,14 @@
         android:src="@drawable/otpicon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></ImageView>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Enter the code sent to your mobile number"
+        android:text="@string/enter_code"
         android:textAlignment="center"
         android:textColor="#787777"
         android:textSize="22sp"
@@ -37,8 +37,7 @@
         android:layout_width="250dp"
         android:layout_height="80dp"
         android:layout_marginTop="15dp"
-        android:background="#CAC5C5"
-        app:cardBackgroundColor="#46A0E8"
+        app:cardBackgroundColor="#4EA8EF"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toTopOf="@+id/btnverify"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,9 +54,7 @@
             android:gravity="center"
             android:hint="******"
             android:singleLine="true"
-            android:textSize="34sp"
-            android:visibility="visible"
-            tools:visibility="visible" />
+            android:textSize="34sp" />
     </androidx.cardview.widget.CardView>
 
     <Button
@@ -70,7 +67,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2"></Button>
+        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
     <TextView
         android:id="@+id/btnResend"
