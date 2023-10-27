@@ -9,6 +9,9 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.project.ngoconnectapp.databinding.ActivityMainBinding
@@ -110,6 +113,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
 
             R.id.nav_logout->{
+//                val googleSignInClient = GoogleSignIn.getClient(this,GoogleSignInOptions.DEFAULT_SIGN_IN)
+//                googleSignInClient.signOut()
                 auth.signOut()
                 Toast.makeText(this,"Successfully Logged Out !",Toast.LENGTH_SHORT).show()
                 tvUserName.text ="Login/Register"
