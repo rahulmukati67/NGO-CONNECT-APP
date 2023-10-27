@@ -40,6 +40,7 @@ class OtpActivity : AppCompatActivity() {
         }
 
         binding.btnResend.setOnClickListener {
+            Toast.makeText(this, "Resending...",Toast.LENGTH_SHORT).show()
             reSendOtp()
         }
 
@@ -49,7 +50,7 @@ class OtpActivity : AppCompatActivity() {
 
         val options = PhoneAuthOptions.newBuilder(auth)
             .setPhoneNumber(number) // Phone number to verify
-            .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
+            .setTimeout(30L, TimeUnit.SECONDS) // Timeout and unit
             .setActivity(this) // Activity (for callback binding)
             .setCallbacks(callbacks) // OnVerificationStateChangedCallbacks
             .build()
@@ -67,7 +68,7 @@ class OtpActivity : AppCompatActivity() {
                     userRef.child(userId!!).setValue(User(userId, "", "", number))
                     Toast.makeText(this, "Logged In Successfully", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, MainActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    intent.flags = (Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                     startActivity(intent)
                 } else {
                     Toast.makeText(this, "${task.exception}", Toast.LENGTH_SHORT).show()
@@ -78,7 +79,7 @@ class OtpActivity : AppCompatActivity() {
     private fun reSendOtp() {
         val options = PhoneAuthOptions.newBuilder(auth)
             .setPhoneNumber(number) // Phone number to verify
-            .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
+            .setTimeout(30L, TimeUnit.SECONDS) // Timeout and unit
             .setActivity(this) // Activity (for callback binding)
             .setCallbacks(callbacks) // OnVerificationStateChangedCallbacks
             .setForceResendingToken(resendToken) // ForceResendingToken from callbacks
@@ -88,7 +89,7 @@ class OtpActivity : AppCompatActivity() {
 
     private val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         override fun onVerificationCompleted(credential: PhoneAuthCredential) {
-
+                signInWithPhoneAuthenticationCredential(credential)
         }
 
         override fun onVerificationFailed(e: FirebaseException) {
