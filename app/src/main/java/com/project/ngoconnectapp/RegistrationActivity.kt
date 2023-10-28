@@ -1,10 +1,10 @@
 package com.project.ngoconnectapp
 
+
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-
 
 class RegistrationActivity : AppCompatActivity() {
     private lateinit var btnNgoReg: Button
@@ -15,6 +15,7 @@ class RegistrationActivity : AppCompatActivity() {
         btnNgoReg = findViewById(R.id.btnNgoReg)
         btnUserReg = findViewById(R.id.btnUserReg)
 
+
         btnNgoReg.setOnClickListener {
             val intent = Intent(this, NgoRegistrationPage::class.java)
             startActivity(intent)
@@ -23,6 +24,5 @@ class RegistrationActivity : AppCompatActivity() {
             val intent = Intent(this, UserRegistrationPage::class.java)
             startActivity(intent)
         }
-
     }
 }
