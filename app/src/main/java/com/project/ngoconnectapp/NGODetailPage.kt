@@ -1,5 +1,7 @@
 package com.project.ngoconnectapp
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.project.ngoconnectapp.databinding.ActivityNgodetailPageBinding
@@ -22,6 +24,16 @@ class NGODetailPage : AppCompatActivity() {
         binding.ngoPhoneNo.text = phoneNo
         binding.ngoEmail.text = email
         binding.ngoWeb.text = website
+
+        binding.ngoWeb.setOnClickListener {
+            var link = binding.ngoWeb.text.toString()
+            if(!link.contains("https://")){
+                link = "https://$link"
+            }
+            val uri = Uri.parse(link)
+            val intent = Intent(Intent.ACTION_VIEW,uri)
+            startActivity(intent)
+        }
 
     }
 }

@@ -8,9 +8,12 @@
             android:id="@+id/nav_profile"
             android:icon="@drawable/baseline_person_24"
             android:title="Profile" />
+    </group>
 
-        <item android:title="User">
-            <menu>
+
+    <item android:title="User">
+        <menu>
+            <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_myDonations"
                     android:icon="@drawable/baseline_attach_money_24"
@@ -30,11 +33,13 @@
                     android:id="@+id/nav_logout"
                     android:icon="@drawable/baseline_keyboard_tab_24"
                     android:title="Logout" />
-            </menu>
-        </item>
+            </group>
+        </menu>
+    </item>
 
-        <item android:title="Communicate">
-            <menu>
+    <item android:title="Communicate">
+        <menu>
+            <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_share"
                     android:icon="@drawable/baseline_share_24"
@@ -49,12 +54,10 @@
                     android:id="@+id/nav_aboutUs"
                     android:icon="@drawable/baseline_app_registration_24"
                     android:title="About Us" />
+            </group>
+        </menu>
 
-            </menu>
-
-        </item>
-
-    </group>
+    </item>
 
 
 </menu>
