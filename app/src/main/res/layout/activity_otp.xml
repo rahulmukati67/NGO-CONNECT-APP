@@ -49,10 +49,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:textColor="@color/white"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:gravity="center"
             android:hint="******"
+            android:textColorHint="@color/white"
             android:singleLine="true"
             android:textSize="34sp" />
     </androidx.cardview.widget.CardView>
@@ -63,6 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="Verify"
+        android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

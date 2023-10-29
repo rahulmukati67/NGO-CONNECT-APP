@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
 
         } else {
-            tvUserName.text = "Login/Register"
+            tvUserName.text = "click to Login/Register"
         }
 
         imgBack.setOnClickListener {
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         tvUserName.setOnClickListener {
-            if(tvUserName.text == "Login/Register"){
+            if(tvUserName.text == "click to Login/Register"){
                 startActivity(Intent(this,RegistrationActivity::class.java))
             }
         }
@@ -124,7 +124,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 googleSignInClient.signOut()
                 auth.signOut()
                 Toast.makeText(this,"Successfully Logged Out !",Toast.LENGTH_SHORT).show()
-                tvUserName.text ="Login/Register"
+                tvUserName.text ="click to Login/Register"
             }
         }
 
