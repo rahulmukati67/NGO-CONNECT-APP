@@ -5,18 +5,18 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.childEvents
 
 class ProfileActivity : AppCompatActivity() {
     private  lateinit var  profileEmail : TextView
     private lateinit var profileName : TextView
     private  lateinit var auth : FirebaseAuth
-    private  lateinit var  firebaseDatabase: FirebaseDatabase
+    private lateinit var dbRef : FirebaseDatabase
     private lateinit var profileNumber: TextView
-    private lateinit var databaseReference: DatabaseReference
-    private lateinit var databaseSnapshot: DataSnapshot
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
@@ -26,34 +26,33 @@ class ProfileActivity : AppCompatActivity() {
         profileName= findViewById(R.id.profileName)
 
         auth = FirebaseAuth.getInstance()
-        val userRef =
-            auth.currentUser?.let { FirebaseDatabase.getInstance().reference.child("users").child(it.uid) }
+
+        dbRef = FirebaseDatabase.getInstance()
+        dbRef.getReference("users").child(auth.currentUser?.uid.toString()).get().addOnCompleteListener {
+
+            val username = it.result.child("username").value
+            val email = it.result.child("email").value
+            val phoneNumber = it.result.child("phoneNumber").value
 
 
-
-        var pEmail  =  auth.currentUser?.email
-        var pNumber = auth.currentUser?.phoneNumber
-        var pName = auth.currentUser?.displayName
-
-        if(pEmail!=null) {
-            profileEmail.text = pEmail
+        if(email!=null) {
+            profileEmail.text = email.toString()
         }else{
             profileEmail.text = "Not Found"
         }
-        if(pName!=null) {
-            profileName.text = pName
+        if(username!=null) {
+            profileName.text = username.toString()
         }else{
             profileName.text = "Not Found"
         }
 
-        if(pNumber!=null){
-        profileNumber.text= pNumber
+        if(phoneNumber!=null){
+        profileNumber.text= phoneNumber.toString()
         }else{
             profileNumber.text = "Not Found"
         }
 
-
-
+        }
 
 
     }

@@ -10,10 +10,12 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.snapshots
+import com.google.firebase.database.values
 import com.project.ngoconnectapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -47,7 +49,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         tvUserName = headerLayout.findViewById(R.id.tvName)
 
         if (auth.currentUser != null) {
-            tvUserName.text = auth.currentUser?.displayName ?: ""
+            FirebaseDatabase.getInstance().getReference("users").child(auth.currentUser!!.uid)
+                .child("username").get().addOnCompleteListener {
+                val username = it.result.value
+                    tvUserName.text = username.toString()
+            }
+
         } else {
             tvUserName.text = "Login/Register"
         }

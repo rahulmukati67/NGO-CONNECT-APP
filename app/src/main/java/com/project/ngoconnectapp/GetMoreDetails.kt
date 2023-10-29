@@ -3,10 +3,8 @@ package com.project.ngoconnectapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
@@ -28,7 +26,7 @@ class GetMoreDetails : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         firebaseDatabase = FirebaseDatabase.getInstance()
-        btn_continue.setOnClickListener(View.OnClickListener {
+        btn_continue.setOnClickListener{
 
             val userId = auth.currentUser?.uid
             val username = manualUserName.text.toString()
@@ -43,7 +41,6 @@ class GetMoreDetails : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             intent.flags = (Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             startActivity(intent)
-            finish()
-        })
+        }
     }
 }
