@@ -1,6 +1,7 @@
 package com.project.ngoconnectapp
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.ImageButton
@@ -14,8 +15,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.snapshots
-import com.google.firebase.database.values
 import com.project.ngoconnectapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -56,7 +55,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
 
         } else {
-            tvUserName.text = "click to Login/Register"
+            tvUserName.text = getString(R.string.click_login)
         }
 
         imgBack.setOnClickListener {
@@ -64,7 +63,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         tvUserName.setOnClickListener {
-            if(tvUserName.text == "click to Login/Register"){
+            if(tvUserName.text == getString(R.string.click_login)){
                 startActivity(Intent(this,RegistrationActivity::class.java))
             }
         }
@@ -119,17 +118,27 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             }
 
+            R.id.nav_find->{
+                val uri = Uri.parse("geo:0,0?q=NGOs")
+                val intent = Intent(Intent.ACTION_VIEW, uri)
+                intent.setPackage("com.google.android.apps.maps")
+                startActivity(intent)
+
+            }
+
             R.id.nav_logout->{
                 val googleSignInClient = GoogleSignIn.getClient(this,GoogleSignInOptions.DEFAULT_SIGN_IN)
                 googleSignInClient.signOut()
                 auth.signOut()
                 Toast.makeText(this,"Successfully Logged Out !",Toast.LENGTH_SHORT).show()
-                tvUserName.text ="click to Login/Register"
+                tvUserName.text =getString(R.string.click_login)
             }
         }
 
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
+
+
 
 }
