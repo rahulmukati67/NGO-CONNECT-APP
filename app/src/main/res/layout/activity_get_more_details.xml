@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
-        android:text="Few More Deatils"
+        android:text="Few More Details"
         android:textColor="@color/btn_text_color"
         android:textSize="32sp"
         android:textStyle="bold"

@@ -44,16 +44,14 @@ class NGODetailPage : AppCompatActivity() {
             intent.putExtra(Intent.EXTRA_EMAIL, recipients)
             intent.type = "text/html"
             intent.setPackage("com.google.android.gm")
-            startActivity(Intent.createChooser(intent, "Send mail"))
+            startActivity(Intent.createChooser(intent, "Send email"))
 
         }
 
         binding.ngoPhoneNo.setOnClickListener{
-//            val intent = Intent(Intent.ACTION_DIAL)
-//            val number = binding.ngoPhoneNo.text.toString()
-//            intent.data = Uri.parse(number)
-//
-//            startActivity(intent)
+            val number = Uri.parse("tel:" + binding.ngoPhoneNo.text.toString())
+            val intent = Intent(Intent.ACTION_DIAL, number)
+            startActivity(intent)
 
         }
 

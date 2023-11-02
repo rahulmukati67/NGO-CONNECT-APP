@@ -41,7 +41,7 @@ class HomeFragment : Fragment() {
         val dbRef =  database.getReference("ngoDetails")
 
         val ngoList = arrayListOf<Ngo_data>()
-        val ngoData1 = Ngo_data("1234","Abc","12345","abc@gmail.com","AnimalWelfare","https://www.google.com")
+        val ngoData1 = Ngo_data("1234","Abc","7225039907","abc@gmail.com","AnimalWelfare","https://www.google.com")
         val ngoData2 = Ngo_data("123466","Xyz","12345","abc@gmail.com","AnimalWelfare","www.xyz.com")
         val ngoData3 = Ngo_data("12345689","Efg","12345","abc@gmail.com","AnimalWelfare","www.efg.com")
         val ngoData4 = Ngo_data("12343333","Hij","12345","abc@gmail.com","AnimalWelfare","www.hij.com")
