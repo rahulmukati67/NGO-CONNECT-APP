@@ -37,10 +37,8 @@ class NGODetailPage : AppCompatActivity() {
         }
 
         binding.ngoEmail.setOnClickListener{
-             val email = binding.ngoEmail.text.toString()
-
             val intent = Intent(Intent.ACTION_SEND)
-            val recipients = arrayOf(email)
+            val recipients = arrayOf(binding.ngoEmail.text.toString())
             intent.putExtra(Intent.EXTRA_EMAIL, recipients)
             intent.type = "text/html"
             intent.setPackage("com.google.android.gm")
