@@ -2,12 +2,13 @@ package com.project.ngoconnectapp
 
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.project.ngoconnectapp.databinding.ActivityNgodetailPageBinding
 
 class NGODetailPage : AppCompatActivity() {
     private lateinit var binding:ActivityNgodetailPageBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNgodetailPageBinding.inflate(layoutInflater)
@@ -33,6 +34,27 @@ class NGODetailPage : AppCompatActivity() {
             val uri = Uri.parse(link)
             val intent = Intent(Intent.ACTION_VIEW,uri)
             startActivity(intent)
+        }
+
+        binding.ngoEmail.setOnClickListener{
+             val email = binding.ngoEmail.text.toString()
+
+            val intent = Intent(Intent.ACTION_SEND)
+            val recipients = arrayOf(email)
+            intent.putExtra(Intent.EXTRA_EMAIL, recipients)
+            intent.type = "text/html"
+            intent.setPackage("com.google.android.gm")
+            startActivity(Intent.createChooser(intent, "Send mail"))
+
+        }
+
+        binding.ngoPhoneNo.setOnClickListener{
+//            val intent = Intent(Intent.ACTION_DIAL)
+//            val number = binding.ngoPhoneNo.text.toString()
+//            intent.data = Uri.parse(number)
+//
+//            startActivity(intent)
+
         }
 
     }

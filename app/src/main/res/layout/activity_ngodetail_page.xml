@@ -134,6 +134,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
+            android:clickable="true"
             android:text="+917223874126"
             android:textColor="#146DAA"
             android:textSize="22sp" />
@@ -163,6 +164,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:text="ngohelp@gmail.com"
+            android:clickable="true"
             android:textColor="#146DAA"
             android:textSize="22sp" />
 

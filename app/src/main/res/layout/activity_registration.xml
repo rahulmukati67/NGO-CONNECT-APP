@@ -4,62 +4,130 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ngoregisterpage"
     tools:context=".RegistrationActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/bg_img_ngo_app" />
-
-    <Button
-        android:id="@+id/btnNgoReg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingStart="34dp"
-        android:paddingTop="8dp"
-        android:paddingEnd="34dp"
-        android:paddingBottom="8dp"
-        android:text="@string/ngo_reg"
-        android:textColor="@color/btn_text_color"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:theme="@style/BtnColor"
-        app:cornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView7"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="160dp"
+        app:cardBackgroundColor="#F3EE00"
+        app:cardCornerRadius="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.557"
-        app:strokeColor="#000000"
-        app:strokeWidth="4dp" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView5"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="148dp"
+        app:cardBackgroundColor="@color/btn_text_color"
+        app:cardCornerRadius="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Who You Are"
+            android:textColor="@color/white"
+            android:textSize="26dp"
+            android:textStyle="bold"></TextView>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="122dp"
+        app:cardBackgroundColor="#61DF33"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.602"
+        app:layout_constraintStart_toEndOf="@+id/cardView6"
+        app:layout_constraintTop_toBottomOf="@+id/cardView7">
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView6"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginRight="40dp"
+        app:cardBackgroundColor="#61DF33"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.231"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView5">
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/btnUserReg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingStart="34dp"
-        android:paddingTop="8dp"
-        android:paddingEnd="34dp"
-        android:paddingBottom="8dp"
-        android:text="@string/user_ngo"
-        android:textColor="@color/btn_text_color"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:theme="@style/BtnColor"
-        app:cornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        android:layout_width="135dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="320dp"
+        android:layout_marginRight="30dp"
+        app:cardBackgroundColor="@color/btn_text_color"
+        app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.181"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnNgoReg"
-        app:layout_constraintVertical_bias="0.086"
-        app:strokeColor="#000000"
-        app:strokeWidth="4dp" />
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:text="User"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_gravity="center">
+
+        </TextView>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnNgoReg"
+        android:layout_width="135dp"
+        android:layout_height="130dp"
+    android:layout_marginLeft="25dp"
+        android:layout_marginTop="320dp"
+        app:cardBackgroundColor="@color/btn_text_color"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.869"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.112">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:text="Ngo"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_gravity="center">
+
+        </TextView>
+
+    </androidx.cardview.widget.CardView>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
