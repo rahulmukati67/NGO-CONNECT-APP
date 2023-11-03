@@ -9,4 +9,12 @@
         <item name="android:textColorHint">@color/grey</item>
 
     </style>
+
+    <style name="NavigationTheme" parent="Base.Theme.NGOConnectApp">
+        <item name="android:layout_marginBottom">11dp</item>
+        <item name="dividerVertical">@dimen/design_navigation_separator_vertical_padding</item>
+        <item name="listPreferredItemHeightSmall">22dp</item>
+        <item name="android:listDivider">@color/light_grey</item>
+
+</style>
 </resources>

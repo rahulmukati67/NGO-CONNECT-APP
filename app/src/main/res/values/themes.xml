@@ -31,8 +31,8 @@
         <item name="android:layout_marginBottom">11dp</item>
         <item name="dividerVertical">@dimen/design_navigation_separator_vertical_padding</item>
         <item name="listPreferredItemHeightSmall">22dp</item>
-
     </style>
+
     <style name="Navigation_item_text" parent="">
         <item name="android:textSize"> 21sp</item>
     </style>
