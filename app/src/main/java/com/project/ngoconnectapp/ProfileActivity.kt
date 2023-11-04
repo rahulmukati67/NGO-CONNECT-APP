@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -25,15 +26,18 @@ class ProfileActivity : AppCompatActivity() {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.progressBar.visibility = View.VISIBLE
 
         auth = FirebaseAuth.getInstance()
         val ref =  FirebaseStorage.getInstance().reference.child("images/${auth.currentUser?.uid!!}.jpg")
         ref.getFile(localFile).addOnSuccessListener {
             val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
             binding.imgProfile.setImageBitmap(bitmap)
+            binding.progressBar.visibility = View.INVISIBLE
 
         }.addOnFailureListener{
-            Toast.makeText(this, "Failed to Upload File", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Upload the Profile Picture !", Toast.LENGTH_SHORT).show()
+            binding.progressBar.visibility = View.INVISIBLE
         }
 
 
@@ -48,23 +52,16 @@ class ProfileActivity : AppCompatActivity() {
 
                 if (email != null) {
                     binding.profileEmail.text = email.toString()
-                } else {
-                    binding.profileEmail.text = getString(R.string.nt_fd)
                 }
                 if (username != null) {
                     binding.profileName.text = username.toString()
-                } else {
-                    binding.profileName.text = getString(R.string.nt_fd)
                 }
 
                 if (phoneNumber != null) {
                     binding.profileNumber.text = phoneNumber.toString()
-                } else {
-                    binding.profileNumber.text = getString(R.string.nt_fd)
                 }
 
             }
-
 
 
         binding.ivEdit.setOnClickListener {
@@ -78,6 +75,8 @@ class ProfileActivity : AppCompatActivity() {
                 val intent = result.data
                 val uri = intent?.data
 
+                binding.progressBar.visibility = View.VISIBLE
+
                 val storageReference = FirebaseStorage.getInstance().getReference("images/" + "${auth.currentUser?.uid!!}.jpg" )
                 storageReference.putFile(uri!!).addOnSuccessListener {
 
@@ -85,6 +84,7 @@ class ProfileActivity : AppCompatActivity() {
                     stoRef.getFile(localFile).addOnSuccessListener {
                         val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
                         binding.imgProfile.setImageBitmap(bitmap)
+                        binding.progressBar.visibility = View.INVISIBLE
 
                     }.addOnFailureListener{
                         Toast.makeText(this, "Failed to Upload File", Toast.LENGTH_SHORT).show()
@@ -104,9 +104,10 @@ class ProfileActivity : AppCompatActivity() {
         val pickIntent = Intent( Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI )
         pickIntent.type = "image/*"
 
-        val chooserIntent = Intent.createChooser(getIntent,"Select Image")
+        val chooserIntent = Intent.createChooser(getIntent,"Select Image ")
         chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, arrayOf(Intent(pickIntent)))
         startForResult.launch(chooserIntent)
+
     }
 
 
