@@ -10,6 +10,7 @@
     <string name="resendotp">Resend OTP after 60 seconds</string>
     <string name="enter_code">Enter the code sent to your mobile number</string>
     <string name="click_login">Click to Login/Register</string>
+    <string name="nt_fd">Not Found</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
