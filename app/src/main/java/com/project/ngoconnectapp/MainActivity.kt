@@ -135,7 +135,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
 
             R.id.nav_find->{
-                val uri = Uri.parse("geo:0,0?q=NGOs")
+                val uri = Uri.parse("geo:0,0?q=ngos near me")
                 val intent = Intent(Intent.ACTION_VIEW, uri)
                 intent.setPackage("com.google.android.apps.maps")
                 startActivity(intent)

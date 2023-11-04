@@ -4,6 +4,7 @@ package com.project.ngoconnectapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
@@ -27,6 +28,7 @@ class OtpActivity : AppCompatActivity() {
         binding = ActivityOtpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.progressBar2.visibility = View.VISIBLE
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
 
@@ -106,6 +108,7 @@ class OtpActivity : AppCompatActivity() {
 
             storedVerificationId = verificationId
             resendToken = token
+            binding.progressBar2.visibility = View.INVISIBLE
             Toast.makeText(this@OtpActivity, "Code sent to $number", Toast.LENGTH_SHORT).show()
         }
     }
