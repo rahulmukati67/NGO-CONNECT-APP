@@ -43,7 +43,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_marginStart="20dp"
-                    android:src="@drawable/bg_img_ngo_app" />
+                    android:src="@drawable/download" />
 
                 <TextView
                     android:id="@+id/tvName"
