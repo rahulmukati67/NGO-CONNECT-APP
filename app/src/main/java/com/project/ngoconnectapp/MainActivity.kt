@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var auth: FirebaseAuth
     private lateinit var  tvUserName : TextView
+    private lateinit var profileImage:ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -49,23 +50,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val headerLayout = binding.navView.getHeaderView(0)
         val imgBack = headerLayout.findViewById<ImageButton>(R.id.imgBack)
-        val profileImage = headerLayout.findViewById<ImageView>(R.id.imgProfile)
+        profileImage = headerLayout.findViewById<ImageView>(R.id.imgProfile)
         tvUserName = headerLayout.findViewById(R.id.tvName)
 
         if (auth.currentUser != null) {
 
-            val storageRef = FirebaseStorage.getInstance().reference.child("images/${auth.currentUser?.uid!!}.jpg")
-            val localFile = File.createTempFile("tempImage","jpg")
-            storageRef.getFile(localFile).addOnSuccessListener {
-                val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
-                profileImage.setImageBitmap(bitmap)
-
-            }
-            FirebaseDatabase.getInstance().getReference("users").child(auth.currentUser!!.uid)
-                .child("username").get().addOnCompleteListener {
-                val username = it.result.value
-                    tvUserName.text = username.toString()
-            }
+            getData()
 
         } else {
             tvUserName.text = getString(R.string.click_login)
@@ -79,6 +69,18 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             if(tvUserName.text == getString(R.string.click_login)){
                 startActivity(Intent(this,RegistrationActivity::class.java))
             }
+        }
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        if (auth.currentUser != null) {
+            getData()
+        }
+        else {
+            tvUserName.text = getString(R.string.click_login)
         }
 
     }
@@ -150,6 +152,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun getData(){
+        val storageRef = FirebaseStorage.getInstance().reference.child("images/${auth.currentUser?.uid!!}.jpg")
+        val localFile = File.createTempFile("tempImage","jpg")
+        storageRef.getFile(localFile).addOnSuccessListener {
+            val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+            profileImage.setImageBitmap(bitmap)
+
+        }
+        FirebaseDatabase.getInstance().getReference("users").child(auth.currentUser!!.uid)
+            .child("username").get().addOnCompleteListener {
+                val username = it.result.value
+                tvUserName.text = username.toString()
+            }
     }
 
 
