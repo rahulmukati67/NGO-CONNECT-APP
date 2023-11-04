@@ -1,10 +1,12 @@
 package com.project.ngoconnectapp
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -15,7 +17,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
 import com.project.ngoconnectapp.databinding.ActivityMainBinding
+import java.io.File
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var binding: ActivityMainBinding
@@ -45,9 +49,18 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val headerLayout = binding.navView.getHeaderView(0)
         val imgBack = headerLayout.findViewById<ImageButton>(R.id.imgBack)
+        val profileImage = headerLayout.findViewById<ImageView>(R.id.imgProfile)
         tvUserName = headerLayout.findViewById(R.id.tvName)
 
         if (auth.currentUser != null) {
+
+            val storageRef = FirebaseStorage.getInstance().reference.child("images/${auth.currentUser?.uid!!}.jpg")
+            val localFile = File.createTempFile("tempImage","jpg")
+            storageRef.getFile(localFile).addOnSuccessListener {
+                val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+                profileImage.setImageBitmap(bitmap)
+
+            }
             FirebaseDatabase.getInstance().getReference("users").child(auth.currentUser!!.uid)
                 .child("username").get().addOnCompleteListener {
                 val username = it.result.value
