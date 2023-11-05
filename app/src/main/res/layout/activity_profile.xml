@@ -5,11 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ngoregisterpage"
+    android:fadingEdge="none"
     tools:context=".ProfileActivity">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:id="@+id/cardView5"
+        android:layout_width="0dp"
+        android:layout_height="225dp"
         app:cardBackgroundColor="@color/btn_text_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,56 +21,90 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_width="0dp"
+        android:layout_height="285dp"
         app:cardBackgroundColor="@color/btn_text_color"
         app:cardCornerRadius="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/ivEdit"
-            android:layout_width="36dp"
-            android:layout_height="32dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="70dp"
-            android:layout_marginTop="170dp"
-            app:srcCompat="@drawable/baseline_edit_24" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imgProfile"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="-10dp"
-            android:layout_marginBottom="10dp"
-            android:src="@drawable/download" />
+            <ImageView
+                android:id="@+id/ivBackBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/baseline_arrow_back_24" />
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="-10dp"
-            android:indeterminate="true"
-            android:indeterminateTint="#FBD0F2"
-            android:visibility="invisible" />
+            <ImageView
+                android:id="@+id/ivEdit"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="-25dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imgProfile"
+                app:layout_constraintStart_toEndOf="@+id/imgProfile"
+                app:srcCompat="@drawable/baseline_edit_24" />
 
-        <TextView
-            android:id="@+id/profileName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="220dp"
-            android:gravity="center"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="30sp"
-            android:textStyle="bold">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/download"
+                app:layout_constraintBottom_toTopOf="@+id/profileName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.655" />
 
-        </TextView>
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:indeterminate="true"
+                android:indeterminateTint="#FBD0F2"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/imgProfile"
+                app:layout_constraintEnd_toEndOf="@+id/imgProfile"
+                app:layout_constraintStart_toStartOf="@+id/imgProfile"
+                app:layout_constraintTop_toTopOf="@+id/imgProfile" />
+
+            <TextView
+                android:id="@+id/profileName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+            </TextView>
+
+            <ImageView
+                android:id="@+id/ivEditName"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/baseline_edit_24"
+                app:layout_constraintBottom_toBottomOf="@+id/profileName"
+                app:layout_constraintStart_toEndOf="@+id/profileName" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
@@ -77,7 +113,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="292dp"
+        android:layout_marginTop="310dp"
         android:text="Email"
         android:textColor="#393838"
         android:textSize="20sp"
@@ -93,10 +129,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="292dp"
         android:src="@drawable/baseline_email_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/profileEmail"
@@ -107,21 +142,35 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.453"
+        app:layout_constraintHorizontal_bias="0.366"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
 
     </TextView>
 
+    <ImageView
+        android:id="@+id/ivEditEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="#57A5DF"
+        android:src="@drawable/baseline_edit_24"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/profileEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/profileEmail"
+        app:srcCompat="@drawable/baseline_edit_24" />
+
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView6"
         android:layout_width="match_parent"
         android:layout_height="2dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
         app:cardBackgroundColor="#B8B3B3"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileEmail">
@@ -132,7 +181,7 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="396dp"
+        android:layout_marginTop="408dp"
         android:text="Phone Number"
         android:textColor="#393838"
         android:textSize="20sp"
@@ -149,10 +198,9 @@
         android:layout_height="wrap_content"
 
         android:layout_marginStart="40dp"
-        android:layout_marginTop="396dp"
         android:src="@drawable/baseline_call_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/profileNumber"
@@ -163,20 +211,33 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.27"
+        app:layout_constraintHorizontal_bias="0.366"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
 
 
     </TextView>
 
+    <ImageView
+        android:id="@+id/ivEditNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="#57A5DF"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/profileNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/profileNumber"
+        app:srcCompat="@drawable/baseline_edit_24" />
+
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView7"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         app:cardBackgroundColor="#B8B3B3"
-        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
