@@ -93,7 +93,7 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun createDialog(title: String , infoDetail : String , type: String)  {
-        val dialog = AlertDialog.Builder(this)
+        val dialog = AlertDialog.Builder(this, androidx.appcompat.R.style.Theme_AppCompat_DayNight_Dialog_Alert)
         val dialogView = layoutInflater.inflate(R.layout.update_dialog, null)
 
         dialog.setView(dialogView)
