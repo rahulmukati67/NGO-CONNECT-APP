@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         profileImage = headerLayout.findViewById<ImageView>(R.id.imgProfile)
         tvUserName = headerLayout.findViewById(R.id.tvName)
 
-        if (auth.currentUser != null) {
+        if (auth.currentUser != null ) {
 
             getData()
 

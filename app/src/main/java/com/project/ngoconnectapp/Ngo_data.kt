@@ -7,6 +7,7 @@ data class Ngo_data(
     var emailId :String? = null,
     var ngoType : String? = null,
     var ngoWeb : String?=null,
+    var ngoPassword:String?=null,
 
 )
 

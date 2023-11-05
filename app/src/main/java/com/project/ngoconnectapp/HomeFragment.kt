@@ -41,15 +41,32 @@ class HomeFragment : Fragment() {
         val dbRef =  database.getReference("ngoDetails")
 
         val ngoList = arrayListOf<Ngo_data>()
-        val ngoData1 = Ngo_data("1234","Abc","7225039907","abc@gmail.com","AnimalWelfare","https://www.google.com")
-        val ngoData2 = Ngo_data("123466","Xyz","12345","abc@gmail.com","AnimalWelfare","www.xyz.com")
-        val ngoData3 = Ngo_data("12345689","Efg","12345","abc@gmail.com","AnimalWelfare","www.efg.com")
-        val ngoData4 = Ngo_data("12343333","Hij","12345","abc@gmail.com","AnimalWelfare","www.hij.com")
+//        val ngoData1 = Ngo_data("1234","Abc","7225039907","abc@gmail.com","AnimalWelfare","https://www.google.com")
+//        val ngoData2 = Ngo_data("123466","Xyz","12345","abc@gmail.com","AnimalWelfare","www.xyz.com")
+//        val ngoData3 = Ngo_data("12345689","Efg","12345","abc@gmail.com","AnimalWelfare","www.efg.com")
+//        val ngoData4 = Ngo_data("12343333","Hij","12345","abc@gmail.com","AnimalWelfare","www.hij.com")
 
-        dbRef.child(ngoData1.uniqueId.toString()).setValue(ngoData1)
-        dbRef.child(ngoData2.uniqueId.toString()).setValue(ngoData2)
-        dbRef.child(ngoData3.uniqueId.toString()).setValue(ngoData3)
-        dbRef.child(ngoData4.uniqueId.toString()).setValue(ngoData4)
+//        dbRef.child(ngoData1.uniqueId.toString()).setValue(ngoData1)
+//        dbRef.child(ngoData2.uniqueId.toString()).setValue(ngoData2)
+//        dbRef.child(ngoData3.uniqueId.toString()).setValue(ngoData3)
+//        dbRef.child(ngoData4.uniqueId.toString()).setValue(ngoData4)
+
+
+        ngoAdapter = NGOAdapter(ngoList)
+
+        ngoAdapter.setItemClickListener(object : NGOAdapter.OnItemClickListener{
+            override fun onClick(position: Int) {
+                val intent = Intent(activity, NGODetailPage::class.java)
+                intent.putExtra("name", ngoList[position].name)
+                intent.putExtra("type", ngoList[position].ngoType)
+                intent.putExtra("phoneNo", ngoList[position].phoneNo)
+                intent.putExtra("email", ngoList[position].emailId)
+                intent.putExtra("website",ngoList[position].ngoWeb)
+                startActivity(intent)
+            }
+
+        })
+        rvNGOs.adapter = ngoAdapter
 
         dbRef.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
