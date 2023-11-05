@@ -54,8 +54,8 @@ dependencies {
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-database-ktx")
     implementation("com.google.firebase:firebase-storage")
-
+    implementation("androidx.core:core-splashscreen:1.0.0-beta02")
     implementation ("com.google.android.gms:play-services-auth:20.7.0")
-
+    implementation ("com.airbnb.android:lottie:6.1.0")
     implementation ("de.hdodenhof:circleimageview:3.1.0")
 }

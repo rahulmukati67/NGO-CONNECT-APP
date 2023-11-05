@@ -11,7 +11,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -51,7 +50,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val headerLayout = binding.navView.getHeaderView(0)
         val imgBack = headerLayout.findViewById<ImageButton>(R.id.imgBack)
-        profileImage = headerLayout.findViewById(R.id.imgProfile)
+        profileImage = headerLayout.findViewById<ImageView>(R.id.imgProfile)
         tvUserName = headerLayout.findViewById(R.id.tvName)
 
         if (auth.currentUser != null) {
@@ -135,7 +134,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
 
             R.id.nav_find->{
-                val uri = Uri.parse("geo:0,0?q=ngos near me")
+                val uri = Uri.parse("geo:0,0?q=NGOs")
                 val intent = Intent(Intent.ACTION_VIEW, uri)
                 intent.setPackage("com.google.android.apps.maps")
                 startActivity(intent)
@@ -148,7 +147,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 auth.signOut()
                 Toast.makeText(this,"Successfully Logged Out !",Toast.LENGTH_SHORT).show()
                 tvUserName.text =getString(R.string.click_login)
-                profileImage.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.download))
             }
         }
 
