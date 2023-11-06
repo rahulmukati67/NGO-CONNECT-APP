@@ -1,5 +1,6 @@
 package com.project.ngoconnectapp
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
@@ -35,6 +36,7 @@ class ProfileActivity : AppCompatActivity() {
         binding.progressBar.visibility = View.VISIBLE
 
         auth = FirebaseAuth.getInstance()
+        dbRef = FirebaseDatabase.getInstance()
 
         getImageFromFirebase()
         getDataFromFirebase()
@@ -92,7 +94,8 @@ class ProfileActivity : AppCompatActivity() {
 
     }
 
-    private fun createDialog(title: String , infoDetail : String , type: String)  {
+    @SuppressLint("SuspiciousIndentation")
+    private fun createDialog(title: String, infoDetail : String, type: String)  {
         val dialog = AlertDialog.Builder(this, androidx.appcompat.R.style.Theme_AppCompat_DayNight_Dialog_Alert)
         val dialogView = layoutInflater.inflate(R.layout.update_dialog, null)
 
@@ -112,20 +115,21 @@ class ProfileActivity : AppCompatActivity() {
             alertDialog.dismiss()
         }
         btnUpdate.setOnClickListener {
-        var user : User? = User("", "", "","")
+            val text = info.text.toString()
+            var user : User? = null
             when (type) {
                 "username" -> {
-                    user = User(auth.currentUser?.uid!!,info.text.toString(),email,phoneNumber )
+                    user = User(auth.currentUser?.uid!!,text,email,phoneNumber )
                 }
                 "email" -> {
-                    user = User(auth.currentUser?.uid!!,username,info.text.toString(),phoneNumber )
+                    user = User(auth.currentUser?.uid!!,username,text,phoneNumber )
                 }
                 "phoneNumber" -> {
-                    user = User(auth.currentUser?.uid!!,username,email,info.text.toString())
+                    user = User(auth.currentUser?.uid!!,username,email,text)
                 }
             }
 
-            dbRef.getReference("users").child(auth.currentUser?.uid!!.toString()).setValue(user!!).addOnCompleteListener {
+            dbRef.getReference("users").child(auth.currentUser?.uid!!).setValue(user!!).addOnCompleteListener {
                 Toast.makeText(this, "Successfully data updated !", Toast.LENGTH_SHORT).show()
             }
             alertDialog.dismiss()
@@ -135,8 +139,17 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun getDataFromFirebase() {
-        dbRef = FirebaseDatabase.getInstance()
-        dbRef.getReference("users").child(auth.currentUser?.uid.toString()).get()
+
+        if (auth.currentUser?.email == "" || auth.currentUser?.email == null) {
+            binding.ivEditEmail.visibility = View.VISIBLE
+        }
+        if (auth.currentUser?.phoneNumber == "" || auth.currentUser?.phoneNumber == null) {
+            binding.ivEditNumber.visibility = View.VISIBLE
+//            Toast.makeText(this ,"Empty NUmber", Toast.LENGTH_SHORT).show()
+        }
+//        Toast.makeText(this ,auth.currentUser?.phoneNumber.toString(), Toast.LENGTH_SHORT).show()
+
+        dbRef.getReference("users").child(auth.currentUser?.uid!!).get()
             .addOnCompleteListener {
 
                 username = it.result.child("username").value.toString()
@@ -148,16 +161,10 @@ class ProfileActivity : AppCompatActivity() {
                     binding.profileNumber.text = phoneNumber
 
             }
-
-        if (auth.currentUser?.email == "") {
-            binding.ivEditEmail.visibility = View.VISIBLE
-        }
-        if (auth.currentUser?.phoneNumber == "") {
-            binding.ivEditNumber.visibility = View.VISIBLE
-        }
     }
 
     private fun getImageFromFirebase(){
+
         val ref =
             FirebaseStorage.getInstance().reference.child("images/${auth.currentUser?.uid!!}.jpg")
         ref.getFile(localFile).addOnSuccessListener {
@@ -170,6 +177,7 @@ class ProfileActivity : AppCompatActivity() {
             binding.progressBar.visibility = View.INVISIBLE
         }
     }
+
 
 
 }

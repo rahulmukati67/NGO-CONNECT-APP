@@ -155,7 +155,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:background="#57A5DF"
-        android:src="@drawable/baseline_edit_24"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/profileEmail"
         app:layout_constraintEnd_toEndOf="parent"
@@ -196,7 +195,6 @@
         android:id="@+id/imageView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_marginStart="40dp"
         android:src="@drawable/baseline_call_24"
         app:layout_constraintBottom_toBottomOf="@+id/textView6"

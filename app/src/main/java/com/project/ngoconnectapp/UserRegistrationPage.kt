@@ -90,7 +90,7 @@ class UserRegistrationPage : AppCompatActivity() {
                                 val email = auth.currentUser?.email
 
                                 val usersRef = database.getReference("users")
-                                val user = User(userId, username, email)
+                                val user = User(userId, username, email ,"")
                                 usersRef.child(userId).setValue(user)
 
                                 val intent = Intent(this, MainActivity::class.java)

@@ -43,13 +43,9 @@ class HomeFragment : Fragment() {
         val ngoList = arrayListOf<Ngo_data>()
         val ngoData1 = Ngo_data("1234","Abc","7225039907","abc@gmail.com","AnimalWelfare","https://www.google.com")
         val ngoData2 = Ngo_data("123466","Xyz","12345","abc@gmail.com","AnimalWelfare","www.xyz.com")
-        val ngoData3 = Ngo_data("12345689","Efg","12345","abc@gmail.com","AnimalWelfare","www.efg.com")
-        val ngoData4 = Ngo_data("12343333","Hij","12345","abc@gmail.com","AnimalWelfare","www.hij.com")
 
         dbRef.child(ngoData1.uniqueId.toString()).setValue(ngoData1)
         dbRef.child(ngoData2.uniqueId.toString()).setValue(ngoData2)
-        dbRef.child(ngoData3.uniqueId.toString()).setValue(ngoData3)
-        dbRef.child(ngoData4.uniqueId.toString()).setValue(ngoData4)
 
 
         ngoAdapter = NGOAdapter(ngoList)
@@ -95,7 +91,7 @@ class HomeFragment : Fragment() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(context,"${error.message}",Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, error.message,Toast.LENGTH_SHORT).show()
             }
 
         })
