@@ -11,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -148,7 +149,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 auth.signOut()
                 Toast.makeText(this,"Successfully Logged Out !",Toast.LENGTH_SHORT).show()
                 tvUserName.text =getString(R.string.click_login)
-                profileImage.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.download))
+                profileImage.setImageDrawable(ActivityCompat.getDrawable(this,R.drawable.download))
             }
         }
 
