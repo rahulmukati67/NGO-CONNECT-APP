@@ -19,9 +19,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.456"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.121"/>
+        app:layout_constraintVertical_bias="0.117" />
 
     <TextView
         android:id="@+id/ngoid"
@@ -57,7 +58,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/ngoType"
-        app:layout_constraintStart_toStartOf="@+id/ngoid6"/>
+        app:layout_constraintStart_toStartOf="@+id/ngoid6" />
 
     <TextView
         android:id="@+id/ngoid6"
@@ -69,7 +70,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/ngoWebsite"
-        app:layout_constraintStart_toStartOf="@+id/ngoid5"/>
+        app:layout_constraintStart_toStartOf="@+id/ngoid5" />
 
     <TextView
         android:id="@+id/ngoid5"
@@ -82,7 +83,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/ngoEmail"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <TextView
@@ -90,16 +91,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
         android:gravity="center"
         android:text="Create Passoword"
         android:textColor="#095C93"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/ngoPassword"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ngoid5" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/ngoPassword"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/ngoid4"
@@ -111,13 +109,13 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/ngoContactNumber"
-        app:layout_constraintStart_toStartOf="@+id/ngoid3"/>
+        app:layout_constraintStart_toStartOf="@+id/ngoid3" />
 
     <EditText
         android:id="@+id/ngoRegId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="35dp"
         android:hint="Enter Registration Id"
         android:inputType="text|textNoSuggestions"
 
@@ -131,7 +129,7 @@
         android:id="@+id/ngoName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="16dp"
         android:hint="Enter NGO Name"
         android:lines="1"
         android:maxWidth="195dp"
@@ -143,8 +141,8 @@
         android:id="@+id/ngoContactNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:hint="+91**********"
+        android:layout_marginTop="16dp"
+        android:hint="@string/number"
         android:inputType="number"
         android:lines="1"
         android:maxWidth="195dp"
@@ -156,8 +154,8 @@
         android:id="@+id/ngoWebsite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:hint="www.example.com"
+        android:layout_marginTop="16dp"
+        android:hint="@string/website"
         android:lines="1"
         android:maxWidth="250dp"
         android:textSize="16sp"
@@ -168,7 +166,7 @@
         android:id="@+id/ngoType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="16dp"
         android:hint="Type Of Ngo"
         android:lines="1"
         android:maxWidth="195dp"
@@ -180,46 +178,43 @@
         android:id="@+id/ngoEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="14dp"
+        android:layout_marginTop="16dp"
         android:hint="username@gmail.com"
         android:inputType="text|textEmailAddress"
         android:lines="1"
         android:maxWidth="250dp"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/ngoPassword"
         app:layout_constraintTop_toBottomOf="@+id/ngoWebsite" />
 
     <EditText
         android:id="@+id/ngoPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Create New Password"
-        android:inputType="text|textEmailAddress"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="70dp"
+        android:hint="@string/create_psswd"
+        android:inputType="text|textPassword"
         android:lines="1"
         android:maxWidth="250dp"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ngoWebsite" />
+        app:layout_constraintTop_toBottomOf="@+id/ngoEmail" />
 
     <Button
         android:id="@+id/btnRegAsNgo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="126dp"
         android:text="Register"
         android:textColor="@color/white"
         android:textSize="26sp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ngoPassword"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/ngoPassword"
+        app:layout_constraintVertical_bias="0.31" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
