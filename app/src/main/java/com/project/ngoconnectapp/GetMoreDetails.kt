@@ -40,6 +40,7 @@ class GetMoreDetails : AppCompatActivity() {
 
                 val intent = Intent(this, MainActivity::class.java)
                 intent.flags = (Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                intent.putExtra("type", "user")
                 startActivity(intent)
             }else{
                 Toast.makeText(this , "Please Enter the Name and Email" , Toast.LENGTH_LONG).show()

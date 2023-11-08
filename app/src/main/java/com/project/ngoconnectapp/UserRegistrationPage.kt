@@ -19,7 +19,7 @@ class UserRegistrationPage : AppCompatActivity() {
     private lateinit var binding: ActivityUserRegistrationPageBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
-    private val app_id = "132639479972-ecvlmdsi49lcfqf9tvsj2iuf5l9734tl.apps.googleusercontent.com"
+    private val appId = "132639479972-ecvlmdsi49lcfqf9tvsj2iuf5l9734tl.apps.googleusercontent.com"
 
     private lateinit var googleSignInOptions: GoogleSignInOptions
 
@@ -34,7 +34,7 @@ class UserRegistrationPage : AppCompatActivity() {
         database = FirebaseDatabase.getInstance()
 
         googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(app_id)
+            .requestIdToken(appId)
             .requestEmail()
             .build()
 
@@ -95,6 +95,7 @@ class UserRegistrationPage : AppCompatActivity() {
 
                                 val intent = Intent(this, MainActivity::class.java)
                                 intent.flags = (Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                                intent.putExtra("type", "user")
                                 startActivity(intent)
                             }
 

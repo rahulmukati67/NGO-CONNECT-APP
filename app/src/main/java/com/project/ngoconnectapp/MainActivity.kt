@@ -26,18 +26,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var binding: ActivityMainBinding
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var auth: FirebaseAuth
-    private lateinit var  tvUserName : TextView
-    private lateinit var profileImage:ImageView
+    private lateinit var dbRef : FirebaseDatabase
+    private lateinit var tvUserName: TextView
+    private lateinit var profileImage: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
-        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, HomeFragment()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, HomeFragment())
+            .commit()
         setSupportActionBar(binding.toolbar)
 
         auth = FirebaseAuth.getInstance()
+        dbRef = FirebaseDatabase.getInstance()
 
         binding.navView.setNavigationItemSelectedListener(this)
 
@@ -67,8 +70,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         tvUserName.setOnClickListener {
-            if(tvUserName.text == getString(R.string.click_login)){
-                startActivity(Intent(this,RegistrationActivity::class.java))
+            if (tvUserName.text == getString(R.string.click_login)) {
+                startActivity(Intent(this, RegistrationActivity::class.java))
             }
         }
 
@@ -79,8 +82,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         if (auth.currentUser != null) {
             getData()
-        }
-        else {
+        } else {
             tvUserName.text = getString(R.string.click_login)
         }
 
@@ -95,7 +97,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             R.id.nav_profile -> {
                 if (auth.currentUser != null) {
-                    startActivity(Intent(this, ProfileActivity::class.java))
+                    if (intent.getStringExtra("type") == "user") {
+                        startActivity(Intent(this, ProfileActivity::class.java))
+                    } else if (intent.getStringExtra("type") == "ngo") {
+                        startActivity(Intent(this, ProfileActivityForNgo::class.java)
+                            .putExtra("regId", intent.getStringExtra("regId")))
+                    }
+
                 } else {
                     Toast.makeText(this, "REGISTER / LOGIN FIRST !", Toast.LENGTH_SHORT).show()
                 }
@@ -134,7 +142,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             }
 
-            R.id.nav_find->{
+            R.id.nav_find -> {
                 val uri = Uri.parse("geo:0,0?q=ngos near me")
                 val intent = Intent(Intent.ACTION_VIEW, uri)
                 intent.setPackage("com.google.android.apps.maps")
@@ -142,13 +150,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             }
 
-            R.id.nav_logout->{
-                val googleSignInClient = GoogleSignIn.getClient(this,GoogleSignInOptions.DEFAULT_SIGN_IN)
+            R.id.nav_logout -> {
+                val googleSignInClient =
+                    GoogleSignIn.getClient(this, GoogleSignInOptions.DEFAULT_SIGN_IN)
                 googleSignInClient.signOut()
                 auth.signOut()
-                Toast.makeText(this,"Successfully Logged Out !",Toast.LENGTH_SHORT).show()
-                tvUserName.text =getString(R.string.click_login)
-                profileImage.setImageDrawable(ActivityCompat.getDrawable(this,R.drawable.download))
+                Toast.makeText(this, "Successfully Logged Out !", Toast.LENGTH_SHORT).show()
+                tvUserName.text = getString(R.string.click_login)
+                profileImage.setImageDrawable(ActivityCompat.getDrawable(this, R.drawable.download))
             }
         }
 
@@ -156,23 +165,31 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
-    private fun getData(){
-        val storageRef = FirebaseStorage.getInstance().reference.child("images/${auth.currentUser?.uid!!}.jpg")
-        val localFile = File.createTempFile("tempImage","jpg")
+    private fun getData() {
+        val storageRef =
+            FirebaseStorage.getInstance().reference.child("images/${auth.currentUser?.uid!!}.jpg")
+        val localFile = File.createTempFile("tempImage", "jpg")
         storageRef.getFile(localFile).addOnSuccessListener {
             val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
             profileImage.setImageBitmap(bitmap)
 
         }
-        FirebaseDatabase.getInstance().getReference("users").child(auth.currentUser!!.uid)
-            .child("username").get().addOnCompleteListener {
-                val username = it.result.value
-                tvUserName.text = username.toString()
+        if (intent.getStringExtra("type") == "user") {
+            dbRef.getReference("users").child(auth.currentUser!!.uid)
+                .child("username").get().addOnCompleteListener {
+                    val username = it.result.value
+                    tvUserName.text = username.toString()
+                }
+        }
+        else if(intent.getStringExtra("type") == "ngo"){
+            dbRef.getReference("ngoDetails").child(intent.getStringExtra("regId").toString())
+                .child("name").get().addOnSuccessListener {
+                    val name = it.value
+                    tvUserName.text = name.toString()
+                }
+        }
 
-
-            }
     }
-
 
 
 }

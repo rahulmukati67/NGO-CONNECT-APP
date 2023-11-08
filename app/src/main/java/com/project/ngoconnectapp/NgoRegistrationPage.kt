@@ -4,6 +4,9 @@ package com.project.ngoconnectapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.project.ngoconnectapp.databinding.ActivityNgoRegistrationPageBinding
@@ -21,6 +24,7 @@ class NgoRegistrationPage : AppCompatActivity() {
 
         val database = Firebase.database
         val dbRef = database.getReference("ngoDetails")
+        val auth = FirebaseAuth.getInstance()
 
         binding.btnRegAsNgo.setOnClickListener {
             val ngoRegId = binding.ngoRegId.text.toString()
@@ -64,10 +68,24 @@ class NgoRegistrationPage : AppCompatActivity() {
                     ngoPassword
                 )
                 dbRef.child(newNgoReg.uniqueId.toString()).setValue(newNgoReg)
+                auth.createUserWithEmailAndPassword(ngoEmail, ngoPassword)
+                    .addOnCompleteListener {
+                        if(it.isSuccessful){
+                            Toast.makeText(this, "Registered Successfully" , Toast.LENGTH_SHORT).show()
+                            auth.signInWithEmailAndPassword(ngoEmail,ngoPassword).addOnSuccessListener{
+                                val intent = Intent(this, MainActivity::class.java)
+                                intent.putExtra("type", "ngo")
+                                intent.putExtra("regId", ngoRegId)
+                                finish()
+                                startActivity(intent)
+                            }
 
-                val intent = Intent(this@NgoRegistrationPage, MainActivity::class.java)
-                finish()
-                startActivity(intent)
+                        }
+                        else{
+                            Log.e("error", it.exception.toString())
+                        }
+                    }
+
             }
 
 
