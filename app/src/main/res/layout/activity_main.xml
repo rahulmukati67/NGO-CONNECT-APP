@@ -16,8 +16,11 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="75dp"
             android:background="@drawable/toolbar_rounded_corners"
+            android:paddingStart="8dp"
+            android:paddingEnd="5dp"
+            android:paddingBottom="10dp"
             android:elevation="10dp"
             app:title=" ">
 
@@ -31,11 +34,9 @@
                 android:gravity="center"
                 android:hint="@string/search"
                 android:inputType="text"
-                android:paddingStart="24dp"
                 android:paddingTop="10dp"
-                android:paddingEnd="24dp"
                 android:paddingBottom="12dp"
-                android:textColor="@color/grey"
+                android:layout_marginStart="10dp"
                 android:textSize="19sp" />
 
         </androidx.appcompat.widget.Toolbar>

@@ -4,9 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
-import com.project.ngoconnectapp.databinding.ActivityMainBinding
 import com.project.ngoconnectapp.databinding.ActivityVolunteerBinding
 
 class VolunteerActivity : AppCompatActivity() {
@@ -28,7 +25,6 @@ class VolunteerActivity : AppCompatActivity() {
             val volsNGoInfo = binding.volsNGoInfo.text.toString()
             val volJoinDate = binding.volJoinDate.text.toString()
             val recipients = arrayOf(binding.volsNgoEmail.text.toString())
-            intent.putExtra(Intent.EXTRA_EMAIL, recipients)
 
             val emailSubject = "Volunteering Application"
             val emailBody = """
@@ -37,15 +33,15 @@ class VolunteerActivity : AppCompatActivity() {
 
             <html>
             <body>
-            <p><strong>Dear Sir,</strong></p>
-            <p>I hope this email finds you well. I am writing to apply for a volunteer position with your esteemed organization. Below, you'll find my contact information and application details:</p>
+            <p><strong>Dear Sir/Ma'am,</strong></p>
+            <p>I hope this email finds you well. I am writing to apply for a volunteer position in your esteemed organization. Below, you'll find my contact information and application details:</p>
 
             <ul>
             <li><strong>Name:</strong> $volName</li>
             <li><strong>Email:</strong> $volEmail</li>
             <li><strong>Phone:</strong> $volPhoneNumber</li>
             <li><strong>Estimated Start Date:</strong> $volJoinDate</li>
-              <li><strong>Experiences:</strong> $volExperience</li>
+            <li><strong>Experiences:</strong> $volExperience</li>
             <li><strong>Source:</strong> $volsNGoInfo</li>
             </ul>
 
@@ -61,14 +57,12 @@ class VolunteerActivity : AppCompatActivity() {
             """
 
 
-            intent.type = "text/plain"
+            intent.type = "text/html"
             intent.putExtra(Intent.EXTRA_EMAIL, recipients)
             intent.putExtra(Intent.EXTRA_SUBJECT, emailSubject)
-            intent.putExtra(Intent.EXTRA_TEXT, emailBody)
             intent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(emailBody))
-            intent.type = "text/html"
             intent.setPackage("com.google.android.gm")
-            startActivity(Intent.createChooser(intent, "Send email"))
+            startActivity(Intent.createChooser(intent, "Send email.."))
         }
 
 

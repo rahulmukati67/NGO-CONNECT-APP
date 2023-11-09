@@ -12,7 +12,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView4"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="200dp"
         app:cardBackgroundColor="@color/btn_text_color"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,8 +23,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_width="0dp"
+        android:layout_height="270dp"
         app:cardBackgroundColor="@color/btn_text_color"
         app:cardCornerRadius="50dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,7 +33,7 @@
 
         <ImageView
             android:id="@+id/ngo_image"
-            android:layout_width="293dp"
+            android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
@@ -42,11 +42,9 @@
         <TextView
             android:id="@+id/ngo_name"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="200dp"
-            android:gravity="center"
-            android:text="Ngo Name"
+            android:layout_marginTop="210dp"
             android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold">
