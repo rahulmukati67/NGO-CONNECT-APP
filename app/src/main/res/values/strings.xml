@@ -30,5 +30,11 @@
     <string name="estimate_date">Estimated Joining Date</string>
     <string name="send_mail">Send Mail</string>
 
+    <string name="regNumStr">Registration Number</string>
+    <string name="NGOTypeStr">NGO Type</string>
+    <string name="emailStr">Email</string>
+    <string name="phoneNoStr">PhoneNumber</string>
+    <string name="websiteStr">Website</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
