@@ -1,6 +1,7 @@
 package com.project.ngoconnectapp
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +12,6 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -45,7 +45,8 @@ class ProfileActivityForNgo : AppCompatActivity() {
         getImageFromFirebase()
 
         val regNumber = intent.getStringExtra("regId")
-        binding.tvRegNumNgo.text = regNumber
+        val num = "$regNumber  "
+        binding.tvRegNumNgo.text = num
 
         getDataFromFirebase(regNumber)
 
@@ -60,6 +61,9 @@ class ProfileActivityForNgo : AppCompatActivity() {
         }
         binding.imgEditNgoWebsite.setOnClickListener {
             createDialog("Changing the url of your website..", ngoWebsite, "website")
+        }
+        binding.imgBackBtnNgo.setOnClickListener {
+            finish()
         }
 
     }
@@ -111,6 +115,7 @@ class ProfileActivityForNgo : AppCompatActivity() {
         val chooserIntent = Intent.createChooser(getIntent, "Select Image ")
         chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, arrayOf(pickIntent))
         startForResult.launch(chooserIntent)
+
     }
 
     private val startForResult =
@@ -119,8 +124,9 @@ class ProfileActivityForNgo : AppCompatActivity() {
                 val intent = result.data
                 val uri = intent?.data
 
-                val ref = storageRef.getReference("ngoImages/${auth.currentUser?.uid}.jpg")
+                binding.progressBar3.visibility = View.VISIBLE
 
+                val ref = storageRef.getReference("ngoImages/${auth.currentUser?.uid}.jpg")
                 ref.putFile(uri!!).addOnSuccessListener {
 
                     getImageFromFirebase()

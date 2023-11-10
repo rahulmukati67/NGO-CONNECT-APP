@@ -76,13 +76,15 @@ class NgoRegistrationPage : AppCompatActivity() {
                                 val intent = Intent(this, MainActivity::class.java)
                                 intent.putExtra("type", "ngo")
                                 intent.putExtra("regId", ngoRegId)
-                                finish()
+                                intent.flags = (Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                 startActivity(intent)
+                            }.addOnFailureListener {exception ->
+                                Toast.makeText(this, exception.message.toString(),Toast.LENGTH_SHORT).show()
                             }
 
                         }
                         else{
-                            Log.e("error", it.exception.toString())
+                            Toast.makeText(this , it.exception.toString(),Toast.LENGTH_SHORT).show()
                         }
                     }
 
