@@ -115,12 +115,12 @@
         android:id="@+id/ngoRegId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="33dp"
         android:hint="Enter Registration Id"
         android:inputType="text|textNoSuggestions"
-
         android:lines="1"
         android:maxWidth="195dp"
+        android:paddingTop="15dp"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/ngoName"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -129,10 +129,11 @@
         android:id="@+id/ngoName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:hint="Enter NGO Name"
         android:lines="1"
         android:maxWidth="195dp"
+        android:paddingTop="15dp"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/ngoContactNumber"
         app:layout_constraintTop_toBottomOf="@+id/ngoRegId" />
@@ -141,48 +142,52 @@
         android:id="@+id/ngoContactNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:hint="@string/number"
         android:inputType="number"
         android:lines="1"
         android:maxWidth="195dp"
+        android:paddingTop="15dp"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/ngoType"
         app:layout_constraintTop_toBottomOf="@+id/ngoName" />
 
     <EditText
-        android:id="@+id/ngoWebsite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="@string/website"
-        android:lines="1"
-        android:maxWidth="250dp"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/ngoEmail"
-        app:layout_constraintTop_toBottomOf="@+id/ngoType" />
-
-    <EditText
         android:id="@+id/ngoType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:hint="Type Of Ngo"
         android:lines="1"
         android:maxWidth="195dp"
+        android:paddingTop="15dp"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/ngoWebsite"
         app:layout_constraintTop_toBottomOf="@+id/ngoContactNumber" />
 
     <EditText
+        android:id="@+id/ngoWebsite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/website"
+        android:lines="1"
+        android:maxWidth="250dp"
+        android:paddingTop="15dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/ngoEmail"
+        app:layout_constraintTop_toBottomOf="@+id/ngoType" />
+
+    <EditText
         android:id="@+id/ngoEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="username@gmail.com"
+        android:layout_marginTop="12dp"
+        android:hint="@string/email"
         android:inputType="text|textEmailAddress"
         android:lines="1"
         android:maxWidth="250dp"
+        android:paddingTop="15dp"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/ngoPassword"
         app:layout_constraintTop_toBottomOf="@+id/ngoWebsite" />
@@ -197,6 +202,7 @@
         android:inputType="text|textPassword"
         android:lines="1"
         android:maxWidth="250dp"
+        android:paddingTop="15dp"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ngoEmail" />
@@ -205,11 +211,9 @@
         android:id="@+id/btnRegAsNgo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:text="Register"
+        android:text="@string/register"
         android:textColor="@color/white"
         android:textSize="26sp"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

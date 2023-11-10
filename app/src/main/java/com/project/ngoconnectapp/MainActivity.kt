@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
+        Toast.makeText(this , intent.getStringExtra("type").toString(),Toast.LENGTH_SHORT).show()
         supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, HomeFragment())
             .commit()
         setSupportActionBar(binding.toolbar)
@@ -76,6 +77,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
     }
+
+//    private var type = intent.getStringExtra("type")
 
     override fun onResume() {
         super.onResume()

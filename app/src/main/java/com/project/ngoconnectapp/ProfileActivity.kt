@@ -89,7 +89,7 @@ class ProfileActivity : AppCompatActivity() {
         pickIntent.type = "image/*"
 
         val chooserIntent = Intent.createChooser(getIntent, "Select Image ")
-        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, arrayOf(Intent(pickIntent)))
+        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, arrayOf(pickIntent))
         startForResult.launch(chooserIntent)
 
     }
@@ -145,9 +145,8 @@ class ProfileActivity : AppCompatActivity() {
         }
         if (auth.currentUser?.phoneNumber == "" || auth.currentUser?.phoneNumber == null) {
             binding.ivEditNumber.visibility = View.VISIBLE
-//            Toast.makeText(this ,"Empty NUmber", Toast.LENGTH_SHORT).show()
+
         }
-//        Toast.makeText(this ,auth.currentUser?.phoneNumber.toString(), Toast.LENGTH_SHORT).show()
 
         dbRef.getReference("users").child(auth.currentUser?.uid!!).get()
             .addOnCompleteListener {
@@ -156,8 +155,10 @@ class ProfileActivity : AppCompatActivity() {
                 email = it.result.child("email").value.toString()
                 phoneNumber = it.result.child("phoneNumber").value.toString()
 
+                val n = "$username  "
+
                     binding.profileEmail.text = email
-                    binding.profileName.text = username
+                    binding.profileName.text = n
                     binding.profileNumber.text = phoneNumber
 
             }

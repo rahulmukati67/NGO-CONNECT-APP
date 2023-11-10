@@ -12,10 +12,23 @@
     <string name="click_login">Click to Login/Register</string>
     <string name="update">Update</string>
     <string name="cancel">Cancel</string>
+    <string name="register">Register</string>
     <string name="create_psswd">Your Password</string>
     <string name="website">www.example.com</string>
     <string name="number">+91**********</string>
+    <string name="email">username@gmail.com</string>
     <string name="name">Enter NGO Name</string>
+
+    <string name="form">Volunteer Form</string>
+    <string name="enter_name">Enter Your Name</string>
+    <string name="enter_email">Enter Your Email</string>
+    <string name="enter_number">Enter Your Name</string>
+    <string name="work_exp">Old Age Homes , Orphanage</string>
+    <string name="worked_before">Have You Worked Before? If Yes, Please mention it.</string>
+    <string name="know_ngo">From where did you get to know about this NGO ?</string>
+    <string name="date_format">dd/mm/yyyy</string>
+    <string name="estimate_date">Estimated Joining Date</string>
+    <string name="send_mail">Send Mail</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

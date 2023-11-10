@@ -41,12 +41,6 @@ class HomeFragment : Fragment() {
         val dbRef =  database.getReference("ngoDetails")
 
         val ngoList = arrayListOf<Ngo_data>()
-        val ngoData1 = Ngo_data("1234","Abc","7225039907","abc@gmail.com","AnimalWelfare","https://www.google.com")
-        val ngoData2 = Ngo_data("123466","Xyz","12345","abc@gmail.com","AnimalWelfare","www.xyz.com")
-
-        dbRef.child(ngoData1.uniqueId.toString()).setValue(ngoData1)
-        dbRef.child(ngoData2.uniqueId.toString()).setValue(ngoData2)
-
 
         ngoAdapter = NGOAdapter(ngoList)
 
