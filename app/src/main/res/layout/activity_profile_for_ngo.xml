@@ -79,16 +79,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imgNgoProfile" />
 
-            <ImageView
-                android:id="@+id/ivEditNameNgo"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginBottom="2dp"
-                android:backgroundTint="@color/item_text_color"
-                app:layout_constraintBottom_toBottomOf="@+id/tvNgoName"
-                app:layout_constraintStart_toEndOf="@+id/tvNgoName"
-                app:srcCompat="@drawable/baseline_edit_24" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
