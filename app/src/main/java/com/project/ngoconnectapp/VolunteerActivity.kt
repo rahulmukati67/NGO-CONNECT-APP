@@ -28,12 +28,14 @@ class VolunteerActivity : AppCompatActivity() {
 
             val emailSubject = "Volunteering Application"
             val emailBody = """
-                
+              
+            
+
             <html>
             <body>
             <p><strong>Dear Sir/Ma'am,</strong></p>
             <p>I hope this email finds you well. I am writing to apply for a volunteer position in your esteemed organization. Below, you'll find my contact information and application details:</p>
-            
+
             <ul>
             <li><strong>Name:</strong> $volName</li>
             <li><strong>Email:</strong> $volEmail</li>

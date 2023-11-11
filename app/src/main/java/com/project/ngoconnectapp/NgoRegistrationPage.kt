@@ -68,11 +68,9 @@ class NgoRegistrationPage : AppCompatActivity() {
                     ngoPassword
                 )
                 dbRef.child(newNgoReg.uniqueId.toString()).setValue(newNgoReg)
-
                 auth.createUserWithEmailAndPassword(ngoEmail, ngoPassword)
                     .addOnCompleteListener {
                         if(it.isSuccessful){
-
                             Toast.makeText(this, "Registered Successfully" , Toast.LENGTH_SHORT).show()
                             auth.signInWithEmailAndPassword(ngoEmail,ngoPassword).addOnSuccessListener{
                                 val intent = Intent(this, MainActivity::class.java)

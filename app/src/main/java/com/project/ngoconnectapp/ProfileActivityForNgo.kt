@@ -62,9 +62,9 @@ class ProfileActivityForNgo : AppCompatActivity() {
         binding.imgEditNgoWebsite.setOnClickListener {
             createDialog("Changing the url of your website..", ngoWebsite, "website")
         }
-//        binding.imgBackBtnNgo.setOnClickListener {
-//            finish()
-//        }
+        binding.imgBackBtnNgo.setOnClickListener {
+            finish()
+        }
 
     }
 

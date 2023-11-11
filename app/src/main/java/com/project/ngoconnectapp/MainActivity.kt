@@ -1,6 +1,8 @@
 package com.project.ngoconnectapp
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
@@ -26,22 +28,38 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var binding: ActivityMainBinding
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var auth: FirebaseAuth
-    private lateinit var dbRef : FirebaseDatabase
+    private lateinit var dbRef: FirebaseDatabase
+    private lateinit var storageRef: FirebaseStorage
     private lateinit var tvUserName: TextView
     private lateinit var profileImage: ImageView
+    private val localFile = File.createTempFile("tempImage", "jpg")
+    private lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
-
         setContentView(binding.root)
-        Toast.makeText(this , intent.getStringExtra("type").toString(),Toast.LENGTH_SHORT).show()
-        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, HomeFragment())
-            .commit()
+
+        sharedPreferences = this.getSharedPreferences("SharedUserType", Context.MODE_PRIVATE)
+        if (intent.getStringExtra("type") != null) {
+            val editor = sharedPreferences.edit()
+            editor.putString("type", intent.getStringExtra("type").toString())
+
+            if (intent.getStringExtra("type") == "ngo") {
+                editor.putString("regId", intent.getStringExtra("regId").toString())
+            }
+
+            editor.apply()
+            editor.commit()
+        }
+
+        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, HomeFragment()).commit()
         setSupportActionBar(binding.toolbar)
 
         auth = FirebaseAuth.getInstance()
         dbRef = FirebaseDatabase.getInstance()
+        storageRef = FirebaseStorage.getInstance()
 
         binding.navView.setNavigationItemSelectedListener(this)
 
@@ -78,7 +96,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     }
 
-//    private var type = intent.getStringExtra("type")
 
     override fun onResume() {
         super.onResume()
@@ -100,11 +117,19 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             R.id.nav_profile -> {
                 if (auth.currentUser != null) {
-                    if (intent.getStringExtra("type") == "user") {
+
+                    val userType = sharedPreferences.getString("type", null).toString()
+
+                    if (userType == "user") {
                         startActivity(Intent(this, ProfileActivity::class.java))
-                    } else if (intent.getStringExtra("type") == "ngo") {
-                        startActivity(Intent(this, ProfileActivityForNgo::class.java)
-                            .putExtra("regId", intent.getStringExtra("regId")))
+                    } else if (userType == "ngo") {
+                        startActivity(
+                            Intent(this, ProfileActivityForNgo::class.java)
+                                .putExtra(
+                                    "regId",
+                                    sharedPreferences.getString("regId", null).toString()
+                                )
+                        )
                     }
 
                 } else {
@@ -169,23 +194,33 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun getData() {
-        val storageRef =
-            FirebaseStorage.getInstance().reference.child("images/${auth.currentUser?.uid!!}.jpg")
-        val localFile = File.createTempFile("tempImage", "jpg")
-        storageRef.getFile(localFile).addOnSuccessListener {
-            val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
-            profileImage.setImageBitmap(bitmap)
 
-        }
-        if (intent.getStringExtra("type") == "user") {
+        val userType = sharedPreferences.getString("type", null).toString()
+
+        if (userType == "user") {
+            val ref = storageRef.reference.child("images/${auth.currentUser?.uid!!}.jpg")
+            ref.getFile(localFile).addOnSuccessListener {
+                val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+                profileImage.setImageBitmap(bitmap)
+
+            }
+
             dbRef.getReference("users").child(auth.currentUser!!.uid)
                 .child("username").get().addOnCompleteListener {
                     val username = it.result.value
                     tvUserName.text = username.toString()
                 }
-        }
-        else if(intent.getStringExtra("type") == "ngo"){
-            dbRef.getReference("ngoDetails").child(intent.getStringExtra("regId").toString())
+
+        } else if (userType == "ngo") {
+
+            val ref = storageRef.reference.child("ngoImages/${auth.currentUser?.uid!!}.jpg")
+            ref.getFile(localFile).addOnSuccessListener {
+                val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+                profileImage.setImageBitmap(bitmap)
+            }
+
+            dbRef.getReference("ngoDetails")
+                .child(sharedPreferences.getString("regId", null).toString())
                 .child("name").get().addOnSuccessListener {
                     val name = it.value
                     tvUserName.text = name.toString()
