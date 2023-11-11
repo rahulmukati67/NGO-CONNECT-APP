@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,24 +19,24 @@ import com.google.firebase.ktx.Firebase
 class HomeFragment : Fragment() {
 
     private lateinit var ngoAdapter: NGOAdapter
-
-
+    private lateinit var progressBar : ProgressBar
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
-
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
+        progressBar = view.findViewById(R.id.progressBar)
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val rvNGOs = view.findViewById<RecyclerView>(R.id.rvNGOs)
         rvNGOs.layoutManager = LinearLayoutManager(context)
         rvNGOs.setHasFixedSize(true)
+        progressBar.visibility = View.VISIBLE
 
         val database = Firebase.database
         val dbRef =  database.getReference("ngoDetails")
@@ -66,6 +67,7 @@ class HomeFragment : Fragment() {
                         val ngoData = ngoSnap.getValue(Ngo_data::class.java)
                         ngoList.add(ngoData!!)
                     }
+                    progressBar.visibility = View.GONE
                     ngoAdapter = NGOAdapter(ngoList)
 
                     ngoAdapter.setItemClickListener(object : NGOAdapter.OnItemClickListener{

@@ -10,10 +10,13 @@ import android.view.WindowManager
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        supportActionBar?.hide()
+
+
         setContentView(R.layout.activity_splash)
 
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
-                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+
 
         Handler().postDelayed({
             val mainIntent = Intent(this, MainActivity::class.java)
