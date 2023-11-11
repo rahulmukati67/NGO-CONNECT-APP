@@ -21,7 +21,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView9"
         android:layout_width="0dp"
-        android:layout_height="285dp"
+        android:layout_height="250dp"
         android:backgroundTint="@color/btn_text_color"
         app:cardCornerRadius="60dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,12 +30,12 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="260dp">
 
             <ImageView
                 android:id="@+id/imgBackBtnNgo"
                 android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_height="35dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -70,8 +70,8 @@
 
             <ImageView
                 android:id="@+id/ivEditPhotoNgo"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
                 android:layout_marginStart="2dp"
                 app:layout_constraintBottom_toBottomOf="@+id/imgNgoProfile"
                 app:layout_constraintStart_toEndOf="@+id/imgNgoProfile"
@@ -85,7 +85,7 @@
                 android:layout_marginTop="15dp"
                 android:textColor="@color/white"
                 android:textSize="30sp"
-                android:textStyle="bold|italic"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imgNgoProfile" />
@@ -97,9 +97,9 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView10"
         android:layout_width="0dp"
-        android:layout_height="3dp"
+        android:layout_height="2dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="25dp"
         app:cardBackgroundColor="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
@@ -109,9 +109,9 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView11"
         android:layout_width="0dp"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:layout_marginStart="62dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="62dp"
         app:cardBackgroundColor="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
@@ -138,8 +138,8 @@
 
             <ImageView
                 android:id="@+id/imageView15"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
                 android:layout_marginStart="30dp"
                 android:scaleType="fitCenter"
                 app:layout_constraintBottom_toBottomOf="@+id/textView19"
@@ -154,7 +154,7 @@
                 android:layout_marginTop="20dp"
                 android:text="@string/regNumStr"
                 android:textColor="@color/bg_color"
-                android:textSize="22sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/imageView15"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -166,10 +166,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:gravity="center_horizontal"
                 android:textColor="@color/bg_color"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="italic"
+                app:layout_constraintHorizontal_bias="0.144"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textView19" />
@@ -177,9 +177,9 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView12"
                 android:layout_width="0dp"
-                android:layout_height="2dp"
+                android:layout_height="1dp"
                 android:layout_marginStart="45dp"
-                android:layout_marginTop="22dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="45dp"
                 app:cardBackgroundColor="#B8B3B3"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -188,8 +188,8 @@
 
             <ImageView
                 android:id="@+id/imageView11"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
                 android:layout_marginStart="30dp"
                 android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="@+id/textView15"
@@ -204,7 +204,7 @@
                 android:layout_marginTop="30dp"
                 android:text="@string/NGOTypeStr"
                 android:textColor="@color/bg_color"
-                android:textSize="22sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/imageView11"
                 app:layout_constraintTop_toBottomOf="@+id/cardView12" />
@@ -214,29 +214,33 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="12dp"
                 android:textColor="@color/bg_color"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="italic"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.144"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textView15" />
 
             <ImageView
                 android:id="@+id/imgEditNgoType"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginBottom="4dp"
                 android:background="#57A5DF"
                 android:src="@drawable/baseline_edit_24"
                 app:layout_constraintBottom_toBottomOf="@+id/tvTypeNgo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.862"
                 app:layout_constraintStart_toEndOf="@+id/tvTypeNgo" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView13"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="1dp"
                 android:layout_marginStart="45dp"
-                android:layout_marginTop="22dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="45dp"
                 app:cardBackgroundColor="#B8B3B3"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -245,8 +249,8 @@
 
             <ImageView
                 android:id="@+id/imageView10"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
                 android:layout_marginStart="30dp"
                 android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="@+id/textView17"
@@ -261,7 +265,7 @@
                 android:layout_marginTop="30dp"
                 android:text="@string/emailStr"
                 android:textColor="@color/bg_color"
-                android:textSize="22sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/imageView10"
                 app:layout_constraintTop_toBottomOf="@+id/cardView13" />
@@ -272,18 +276,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/bg_color"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="italic"
+                android:layout_marginLeft="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.144"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView14"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="1dp"
                 android:layout_marginStart="45dp"
-                android:layout_marginTop="22dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="45dp"
                 app:cardBackgroundColor="#B8B3B3"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -292,8 +298,8 @@
 
             <ImageView
                 android:id="@+id/imageView12"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
                 android:layout_marginStart="30dp"
                 android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="@+id/textView21"
@@ -308,7 +314,7 @@
                 android:layout_marginTop="30dp"
                 android:text="@string/phoneNoStr"
                 android:textColor="@color/bg_color"
-                android:textSize="22sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/imageView12"
                 app:layout_constraintTop_toBottomOf="@+id/cardView14" />
@@ -319,27 +325,32 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/bg_color"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="italic"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintHorizontal_bias="0.144"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
             <ImageView
                 android:id="@+id/imgEditNgoNumber"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginBottom="4dp"
                 android:background="#57A5DF"
                 android:src="@drawable/baseline_edit_24"
                 app:layout_constraintBottom_toBottomOf="@id/tvNumberNgo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.862"
                 app:layout_constraintStart_toEndOf="@id/tvNumberNgo" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView15"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="1dp"
                 android:layout_marginStart="45dp"
-                android:layout_marginTop="22dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="45dp"
                 app:cardBackgroundColor="#B8B3B3"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -354,15 +365,15 @@
                 android:layout_marginTop="30dp"
                 android:text="@string/websiteStr"
                 android:textColor="@color/bg_color"
-                android:textSize="22sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/imageView13"
                 app:layout_constraintTop_toBottomOf="@+id/cardView15" />
 
             <ImageView
                 android:id="@+id/imageView13"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
                 android:layout_marginStart="30dp"
                 android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="@+id/textView23"
@@ -375,19 +386,24 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/bg_color"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="italic"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintHorizontal_bias="0.144"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
             <ImageView
                 android:id="@+id/imgEditNgoWebsite"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginBottom="4dp"
                 android:background="#57A5DF"
                 android:src="@drawable/baseline_edit_24"
                 app:layout_constraintBottom_toBottomOf="@id/tvWebsiteNgo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.862"
                 app:layout_constraintStart_toEndOf="@id/tvWebsiteNgo" />
 
 
