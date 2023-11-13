@@ -21,7 +21,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView9"
         android:layout_width="0dp"
-        android:layout_height="250dp"
+        android:layout_height="260dp"
         android:backgroundTint="@color/btn_text_color"
         app:cardCornerRadius="60dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,9 +70,9 @@
 
             <ImageView
                 android:id="@+id/ivEditPhotoNgo"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="2dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="4dp"
                 app:layout_constraintBottom_toBottomOf="@+id/imgNgoProfile"
                 app:layout_constraintStart_toEndOf="@+id/imgNgoProfile"
                 app:srcCompat="@drawable/baseline_edit_24" />
@@ -138,9 +138,10 @@
 
             <ImageView
                 android:id="@+id/imageView15"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:layout_marginStart="30dp"
+                android:layout_marginBottom="1dp"
                 android:scaleType="fitCenter"
                 app:layout_constraintBottom_toBottomOf="@+id/textView19"
                 app:layout_constraintStart_toStartOf="parent"
@@ -154,7 +155,7 @@
                 android:layout_marginTop="20dp"
                 android:text="@string/regNumStr"
                 android:textColor="@color/bg_color"
-                android:textSize="16sp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/imageView15"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -167,10 +168,10 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/bg_color"
-                android:textSize="16sp"
+                android:textSize="17sp"
                 android:textStyle="italic"
-                app:layout_constraintHorizontal_bias="0.144"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.144"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textView19" />
 
@@ -188,9 +189,10 @@
 
             <ImageView
                 android:id="@+id/imageView11"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:layout_marginStart="30dp"
+                android:layout_marginBottom="1dp"
                 android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="@+id/textView15"
                 app:layout_constraintStart_toStartOf="parent"
@@ -204,7 +206,7 @@
                 android:layout_marginTop="30dp"
                 android:text="@string/NGOTypeStr"
                 android:textColor="@color/bg_color"
-                android:textSize="16sp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/imageView11"
                 app:layout_constraintTop_toBottomOf="@+id/cardView12" />
@@ -216,7 +218,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="12dp"
                 android:textColor="@color/bg_color"
-                android:textSize="16sp"
+                android:textSize="17sp"
                 android:textStyle="italic"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.144"
@@ -249,9 +251,10 @@
 
             <ImageView
                 android:id="@+id/imageView10"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:layout_marginStart="30dp"
+                android:layout_marginBottom="1dp"
                 android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="@+id/textView17"
                 app:layout_constraintStart_toStartOf="parent"
@@ -265,7 +268,7 @@
                 android:layout_marginTop="30dp"
                 android:text="@string/emailStr"
                 android:textColor="@color/bg_color"
-                android:textSize="16sp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/imageView10"
                 app:layout_constraintTop_toBottomOf="@+id/cardView13" />
@@ -274,11 +277,11 @@
                 android:id="@+id/tvEmailNgo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/bg_color"
-                android:textSize="16sp"
+                android:textSize="17sp"
                 android:textStyle="italic"
-                android:layout_marginLeft="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.144"
                 app:layout_constraintStart_toStartOf="parent"
@@ -298,9 +301,10 @@
 
             <ImageView
                 android:id="@+id/imageView12"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:layout_marginStart="30dp"
+                android:layout_marginBottom="1dp"
                 android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="@+id/textView21"
                 app:layout_constraintStart_toStartOf="parent"
@@ -314,7 +318,7 @@
                 android:layout_marginTop="30dp"
                 android:text="@string/phoneNoStr"
                 android:textColor="@color/bg_color"
-                android:textSize="16sp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/imageView12"
                 app:layout_constraintTop_toBottomOf="@+id/cardView14" />
@@ -323,13 +327,13 @@
                 android:id="@+id/tvNumberNgo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/bg_color"
-                android:textSize="16sp"
+                android:textSize="17sp"
                 android:textStyle="italic"
-                android:layout_marginLeft="10dp"
-                app:layout_constraintHorizontal_bias="0.144"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.144"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
@@ -365,16 +369,17 @@
                 android:layout_marginTop="30dp"
                 android:text="@string/websiteStr"
                 android:textColor="@color/bg_color"
-                android:textSize="16sp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/imageView13"
                 app:layout_constraintTop_toBottomOf="@+id/cardView15" />
 
             <ImageView
                 android:id="@+id/imageView13"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:layout_marginStart="30dp"
+                android:layout_marginBottom="1dp"
                 android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="@+id/textView23"
                 app:layout_constraintStart_toStartOf="parent"
@@ -384,13 +389,13 @@
                 android:id="@+id/tvWebsiteNgo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/bg_color"
-                android:textSize="16sp"
+                android:textSize="17sp"
                 android:textStyle="italic"
-                android:layout_marginLeft="10dp"
-                app:layout_constraintHorizontal_bias="0.144"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.144"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView23" />
 

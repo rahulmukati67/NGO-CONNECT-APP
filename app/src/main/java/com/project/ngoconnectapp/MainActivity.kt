@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         tvUserName.setOnClickListener {
             if (tvUserName.text == getString(R.string.click_login)) {
-                startActivity(Intent(this, RegistrationActivity::class.java))
+                startActivity(Intent(this, LoginActivity::class.java))
             }
         }
 
@@ -138,10 +138,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             }
 
-            R.id.nav_aboutUs->{
-                val intent = Intent(this, AboutUs::class.java)
-                startActivity(intent)
-            }
             R.id.nav_myDonations -> {
                 if (auth.currentUser != null) {
                     val intent = Intent(this, MyDonationsActivity::class.java)
@@ -190,6 +186,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 Toast.makeText(this, "Successfully Logged Out !", Toast.LENGTH_SHORT).show()
                 tvUserName.text = getString(R.string.click_login)
                 profileImage.setImageDrawable(ActivityCompat.getDrawable(this, R.drawable.download))
+            }
+
+            R.id.nav_aboutUs -> {
+                val intent = Intent(this , AboutUs::class.java)
+                startActivity(intent)
             }
         }
 
