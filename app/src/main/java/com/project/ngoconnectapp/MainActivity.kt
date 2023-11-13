@@ -138,6 +138,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             }
 
+            R.id.nav_aboutUs->{
+                val intent = Intent(this, AboutUs::class.java)
+                startActivity(intent)
+            }
             R.id.nav_myDonations -> {
                 if (auth.currentUser != null) {
                     val intent = Intent(this, MyDonationsActivity::class.java)

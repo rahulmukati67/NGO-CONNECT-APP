@@ -16,7 +16,7 @@ class MyDonationsActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnDonate.setOnClickListener{
-            val builder = AlertDialog.Builder(this@MyDonationsActivity ,androidx.appcompat.R.style.Theme_AppCompat_DayNight_Dialog_Alert)
+            val builder = AlertDialog.Builder(this@MyDonationsActivity)
             builder.setTitle("Thanks").setMessage("You Have Successful Donated Amount : Rs " + binding.donationAmount.text.toString())
             builder.setPositiveButton("OK" ) { dialogInterface, _ ->
                 dialogInterface.dismiss()
