@@ -23,6 +23,10 @@ class MyDonationsActivity : AppCompatActivity() {
             }
             val alertDialog = builder.create()
             alertDialog.show()
+
         }
+
+
+
     }
 }
