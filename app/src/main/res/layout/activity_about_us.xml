@@ -243,7 +243,7 @@
                         </TextView>
 
                         <TextView
-                            android:layout_width="268dp"
+                            android:layout_width="269dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="20dp"
                             android:fontFamily="@font/andika_new_basic_bold_italic"
