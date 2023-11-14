@@ -57,5 +57,6 @@
     <string name="donate">Donate Now</string>
     <string name="cont_para">Your contribution directly supports vital programs, covers operational needs, and establishes an emergency fund for unforeseen circumstances. We prioritize transparency and will provide regular updates on the impact of your donation. Thank you for being a catalyst for positive change.</string>
 
+    <string name="upload_image">Please Upload an Image of your NGO </string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

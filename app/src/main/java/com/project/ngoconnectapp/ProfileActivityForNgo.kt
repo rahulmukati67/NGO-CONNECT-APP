@@ -104,7 +104,7 @@ class ProfileActivityForNgo : AppCompatActivity() {
         val getIntent = Intent(Intent.ACTION_GET_CONTENT)
         getIntent.type = "image/*"
 
-        val pickIntent = Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+        val pickIntent = Intent(Intent.ACTION_PICK)
         pickIntent.type ="image/*"
 
         val chooserIntent = Intent.createChooser(getIntent, "Select Image ")

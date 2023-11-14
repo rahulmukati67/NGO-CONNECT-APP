@@ -21,7 +21,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView9"
         android:layout_width="0dp"
-        android:layout_height="260dp"
+        android:layout_height="265dp"
         android:backgroundTint="@color/btn_text_color"
         app:cardCornerRadius="60dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +47,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="25dp"
+                android:layout_marginBottom="30dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -70,8 +70,8 @@
 
             <ImageView
                 android:id="@+id/ivEditPhotoNgo"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_marginStart="4dp"
                 app:layout_constraintBottom_toBottomOf="@+id/imgNgoProfile"
                 app:layout_constraintStart_toEndOf="@+id/imgNgoProfile"

@@ -74,10 +74,10 @@ class NgoRegistrationPage : AppCompatActivity() {
 
                             auth.signInWithEmailAndPassword(ngoEmail,ngoPassword).addOnSuccessListener{
                                 dbRef.child(auth.currentUser?.uid!!).setValue(newNgoReg)
-                                val intent = Intent(this, MainActivity::class.java)
-                                intent.putExtra("type", "ngo")
+                                val intent = Intent(this, UploadImage::class.java)
                                 intent.flags = (Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                 startActivity(intent)
+
                             }.addOnFailureListener {exception ->
                                 Toast.makeText(this, exception.message.toString(),Toast.LENGTH_SHORT).show()
                             }

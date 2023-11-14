@@ -15,6 +15,9 @@
         android:theme="@style/Theme.NGOConnectApp"
         tools:targetApi="31">
         <activity
+            android:name=".UploadImage"
+            android:exported="false" />
+        <activity
             android:name=".NgoLoginActivity"
             android:exported="false" />
         <activity
