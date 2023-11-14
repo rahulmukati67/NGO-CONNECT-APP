@@ -11,7 +11,6 @@
         android:id="@+id/imageView7"
         android:layout_width="0dp"
         android:layout_height="250dp"
-        android:layout_marginTop="8dp"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +48,7 @@
         android:id="@+id/tvRegistration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:background="#E5F2F6"
         android:padding="8dp"
         android:text="@string/registration_activity"
@@ -62,14 +61,15 @@
 
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="60dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="50dp"
+        android:rotationX="-21"
+        android:rotationY="33"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvRegistration"
-        app:layout_constraintVertical_bias="0.762"
         app:srcCompat="@drawable/login_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

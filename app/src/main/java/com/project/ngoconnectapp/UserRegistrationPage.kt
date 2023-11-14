@@ -33,6 +33,11 @@ class UserRegistrationPage : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
 
+        val value = intent.getStringExtra("user")
+        if(value == "login"){
+            binding.btngooglesignin.text = getString(R.string.login_google)
+            binding.tvRegisterUser.text = getString(R.string.login_user)
+        }
         googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(appId)
             .requestEmail()

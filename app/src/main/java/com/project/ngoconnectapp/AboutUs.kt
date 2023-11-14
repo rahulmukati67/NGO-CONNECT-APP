@@ -14,7 +14,9 @@ class AboutUs : AppCompatActivity() {
         binding = ActivityAboutUsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        binding.btnBackAboutUs.setOnClickListener {
+            finish()
+        }
 
         binding.btnSendFeedback.setOnClickListener {
             val userFeedback = binding.feedback.text.toString()

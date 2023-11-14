@@ -9,13 +9,13 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvRegisterUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="120dp"
         android:text="@string/user_ngo"
         android:textColor="#095C93"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,7 @@
         app:layout_constraintBottom_toTopOf="@+id/btnContinue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/tvRegisterUser"
         app:layout_constraintVertical_bias="0.677" />
 
     <Button
@@ -76,15 +76,15 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/userNumber"
-        android:layout_marginBottom="136dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="120dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:text="@string/googleSignIn"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:icon="@drawable/google_logo"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
         app:iconGravity="start"
         app:iconSize="24dp"
         app:iconTint="@null"

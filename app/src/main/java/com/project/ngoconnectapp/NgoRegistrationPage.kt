@@ -67,15 +67,15 @@ class NgoRegistrationPage : AppCompatActivity() {
                     ngoWebsite,
                     ngoPassword
                 )
-                dbRef.child(newNgoReg.uniqueId.toString()).setValue(newNgoReg)
-                auth.createUserWithEmailAndPassword(ngoEmail, ngoPassword)
-                    .addOnCompleteListener {
+                auth.createUserWithEmailAndPassword(ngoEmail, ngoPassword).addOnCompleteListener {
+
                         if(it.isSuccessful){
                             Toast.makeText(this, "Registered Successfully" , Toast.LENGTH_SHORT).show()
+
                             auth.signInWithEmailAndPassword(ngoEmail,ngoPassword).addOnSuccessListener{
+                                dbRef.child(auth.currentUser?.uid!!).setValue(newNgoReg)
                                 val intent = Intent(this, MainActivity::class.java)
                                 intent.putExtra("type", "ngo")
-                                intent.putExtra("regId", ngoRegId)
                                 intent.flags = (Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                 startActivity(intent)
                             }.addOnFailureListener {exception ->

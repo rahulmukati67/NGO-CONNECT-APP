@@ -26,9 +26,7 @@ class ProfileActivityForNgo : AppCompatActivity() {
     private lateinit var storageRef : FirebaseStorage
     private lateinit var auth : FirebaseAuth
     private val localFile =  File.createTempFile("tempFile","jpg")
-    private lateinit var ngoName : String
     private lateinit var ngoType :String
-    private lateinit var ngoEmail :String
     private lateinit var ngoNumber :String
     private lateinit var ngoWebsite :String
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,17 +37,11 @@ class ProfileActivityForNgo : AppCompatActivity() {
 
         binding.progressBar3.visibility = View.VISIBLE
 
-        val regNumber = intent.getStringExtra("regId")
-
         auth = FirebaseAuth.getInstance()
-        dbRef = FirebaseDatabase.getInstance().getReference("ngoDetails").child(regNumber!!)
+        dbRef = FirebaseDatabase.getInstance().getReference("ngoDetails").child(auth.currentUser?.uid!!)
         storageRef = FirebaseStorage.getInstance()
 
         getImageFromFirebase()
-
-        val num = "$regNumber  "
-        binding.tvRegNumNgo.text = num
-
         getDataFromFirebase()
 
         binding.ivEditPhotoNgo.setOnClickListener {
@@ -88,18 +80,19 @@ class ProfileActivityForNgo : AppCompatActivity() {
     private fun getDataFromFirebase(){
         dbRef.get().addOnCompleteListener {
 
-            ngoName = it.result.child("name").value.toString()
+            val ngoRegNum = it.result.child("uniqueId").value.toString() + "  "
+            val ngoName = it.result.child("name").value.toString()+ "  "
+            val ngoEmail = it.result.child("emailId").value.toString()+"  "
             ngoType = it.result.child("ngoType").value.toString()
-            ngoEmail = it.result.child("emailId").value.toString()
             ngoNumber = it.result.child("phoneNo").value.toString()
             ngoWebsite = it.result.child("ngoWeb").value.toString()
 
-            val name = "$ngoName  "
-            binding.tvNgoName.text = name
+
+            binding.tvRegNumNgo.text = ngoRegNum
+            binding.tvNgoName.text = ngoName
+            binding.tvEmailNgo.text = ngoEmail
             val type = "$ngoType  "
             binding.tvTypeNgo.text = type
-            val email = "$ngoEmail  "
-            binding.tvEmailNgo.text = email
             val number = "$ngoNumber  "
             binding.tvNumberNgo.text = number
             val website ="$ngoWebsite  "

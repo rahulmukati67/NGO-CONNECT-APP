@@ -46,10 +46,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val editor = sharedPreferences.edit()
             editor.putString("type", intent.getStringExtra("type").toString())
 
-            if (intent.getStringExtra("type") == "ngo") {
-                editor.putString("regId", intent.getStringExtra("regId").toString())
-            }
-
             editor.apply()
             editor.commit()
         }
@@ -123,13 +119,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     if (userType == "user") {
                         startActivity(Intent(this, ProfileActivity::class.java))
                     } else if (userType == "ngo") {
-                        startActivity(
-                            Intent(this, ProfileActivityForNgo::class.java)
-                                .putExtra(
-                                    "regId",
-                                    sharedPreferences.getString("regId", null).toString()
-                                )
-                        )
+                        startActivity(Intent(this, ProfileActivityForNgo::class.java))
                     }
 
                 } else {
@@ -225,8 +215,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
 
             dbRef.getReference("ngoDetails")
-                .child(sharedPreferences.getString("regId", null).toString())
-                .child("name").get().addOnSuccessListener {
+                .child(auth.currentUser?.uid!!).child("name").get().addOnSuccessListener {
                     val name = it.value
                     tvUserName.text = name.toString()
                 }
