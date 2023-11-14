@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.project.ngoconnectapp.databinding.ActivityProfileForNgoBinding
@@ -21,7 +22,7 @@ import java.io.File
 class ProfileActivityForNgo : AppCompatActivity() {
 
     private lateinit var binding: ActivityProfileForNgoBinding
-    private lateinit var dbRef : FirebaseDatabase
+    private lateinit var dbRef : DatabaseReference
     private lateinit var storageRef : FirebaseStorage
     private lateinit var auth : FirebaseAuth
     private val localFile =  File.createTempFile("tempFile","jpg")
@@ -38,17 +39,18 @@ class ProfileActivityForNgo : AppCompatActivity() {
 
         binding.progressBar3.visibility = View.VISIBLE
 
+        val regNumber = intent.getStringExtra("regId")
+
         auth = FirebaseAuth.getInstance()
-        dbRef = FirebaseDatabase.getInstance()
+        dbRef = FirebaseDatabase.getInstance().getReference("ngoDetails").child(regNumber!!)
         storageRef = FirebaseStorage.getInstance()
 
         getImageFromFirebase()
 
-        val regNumber = intent.getStringExtra("regId")
         val num = "$regNumber  "
         binding.tvRegNumNgo.text = num
 
-        getDataFromFirebase(regNumber)
+        getDataFromFirebase()
 
         binding.ivEditPhotoNgo.setOnClickListener {
             getImage()
@@ -83,8 +85,8 @@ class ProfileActivityForNgo : AppCompatActivity() {
         }
      }
 
-    private fun getDataFromFirebase(regNumber : String?){
-        dbRef.getReference("ngoDetails").child(regNumber!!).get().addOnCompleteListener {
+    private fun getDataFromFirebase(){
+        dbRef.get().addOnCompleteListener {
 
             ngoName = it.result.child("name").value.toString()
             ngoType = it.result.child("ngoType").value.toString()
@@ -121,13 +123,16 @@ class ProfileActivityForNgo : AppCompatActivity() {
     private val startForResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result : ActivityResult ->
             if(result.resultCode == Activity.RESULT_OK){
-                val intent = result.data
-                val uri = intent?.data
+                val uri = result.data?.data
 
                 binding.progressBar3.visibility = View.VISIBLE
 
                 val ref = storageRef.getReference("ngoImages/${auth.currentUser?.uid}.jpg")
                 ref.putFile(uri!!).addOnSuccessListener {
+
+                    it.metadata!!.reference!!.downloadUrl.addOnSuccessListener { uri ->
+                        dbRef.child("ngoImage").setValue(uri.toString())
+                    }
 
                     getImageFromFirebase()
                 }.addOnFailureListener{
@@ -156,17 +161,16 @@ class ProfileActivityForNgo : AppCompatActivity() {
         }
 
         btnUpdate.setOnClickListener {
-            val regNumber = intent.getStringExtra("regId")
-            val ngoDetail = dbRef.getReference("ngoDetails").child(regNumber!!)
+
             when(action){
-                "type" -> ngoDetail.child("ngoType").setValue(info.text.toString())
-                "number" -> ngoDetail.child("phoneNo").setValue(info.text.toString())
-                "website" -> ngoDetail.child("ngoWeb").setValue(info.text.toString())
+                "type" -> dbRef.child("ngoType").setValue(info.text.toString())
+                "number" -> dbRef.child("phoneNo").setValue(info.text.toString())
+                "website" -> dbRef.child("ngoWeb").setValue(info.text.toString())
             }
             Toast.makeText(this, "Successfully data updated !", Toast.LENGTH_SHORT).show()
 
             alertDialog.dismiss()
-            getDataFromFirebase(regNumber)
+            getDataFromFirebase()
 
         }
     }

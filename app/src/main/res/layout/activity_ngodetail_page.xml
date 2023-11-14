@@ -24,7 +24,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="0dp"
-        android:layout_height="270dp"
+        android:layout_height="280dp"
         app:cardBackgroundColor="@color/btn_text_color"
         app:cardCornerRadius="50dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,19 +32,19 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/ngo_image"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:id="@+id/ngoImage"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="15dp"
             android:src="@drawable/download" />
 
         <TextView
-            android:id="@+id/ngo_name"
+            android:id="@+id/ngoNameDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="210dp"
+            android:layout_marginTop="220dp"
             android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold">
@@ -86,7 +86,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="70dp"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
         tools:layout_editor_absoluteX="0dp">
@@ -99,11 +99,10 @@
             android:src="@drawable/baseline_home_24" />
 
         <TextView
-            android:id="@+id/ngo_type"
+            android:id="@+id/ngoTypeDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:text="Animal hospital"
             android:textColor="#146DAA"
             android:textSize="22sp" />
 
@@ -113,12 +112,13 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -128,12 +128,11 @@
             android:src="@drawable/baseline_call_24" />
 
         <TextView
-            android:id="@+id/ngo_phone_no"
+            android:id="@+id/ngoPhoneNoDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:clickable="true"
-            android:text="+917223874126"
+            android:clickable="false"
             android:textColor="#146DAA"
             android:textSize="22sp" />
 
@@ -142,12 +141,13 @@
 
     <LinearLayout
         android:id="@+id/linearLayout4"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -157,12 +157,11 @@
             android:src="@drawable/baseline_email_24" />
 
         <TextView
-            android:id="@+id/ngo_email"
+            android:id="@+id/ngoEmailDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:text="ngohelp@gmail.com"
-            android:clickable="true"
+            android:clickable="false"
             android:textColor="#146DAA"
             android:textSize="22sp" />
 
@@ -170,11 +169,12 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -184,11 +184,10 @@
             android:src="@drawable/baseline_web_24" />
 
         <TextView
-            android:id="@+id/ngo_web"
+            android:id="@+id/ngoWebDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:text="www.ngohelp.com"
             android:textColor="#146DAA"
             android:textSize="22sp" />
 

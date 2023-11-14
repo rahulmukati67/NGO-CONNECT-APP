@@ -4,7 +4,6 @@ package com.project.ngoconnectapp
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class RegistrationActivity : AppCompatActivity() {
@@ -15,7 +14,6 @@ class RegistrationActivity : AppCompatActivity() {
         setContentView(R.layout.activity_registration)
         btnNgoReg = findViewById(R.id.btnNgoReg)
         btnUserReg = findViewById(R.id.btnUserReg)
-        val tvLogin = findViewById<TextView>(R.id.tvLoginActivity)
 
 
         btnNgoReg.setOnClickListener {
@@ -25,9 +23,6 @@ class RegistrationActivity : AppCompatActivity() {
         btnUserReg.setOnClickListener {
             val intent = Intent(this, UserRegistrationPage::class.java)
             startActivity(intent)
-        }
-        tvLogin.setOnClickListener {
-            startActivity(Intent(this , LoginActivity::class.java))
         }
     }
 }

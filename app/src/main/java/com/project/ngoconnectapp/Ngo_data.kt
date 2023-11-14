@@ -1,5 +1,6 @@
 package com.project.ngoconnectapp
 
+
 data class Ngo_data(
     var uniqueId : String? = null,
     var name:String? = null,
@@ -8,6 +9,7 @@ data class Ngo_data(
     var ngoType : String? = null,
     var ngoWeb : String?=null,
     var ngoPassword:String?=null,
+    var ngoImage : String? = null
 
 )
 

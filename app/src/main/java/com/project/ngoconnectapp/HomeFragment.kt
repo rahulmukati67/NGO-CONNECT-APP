@@ -44,20 +44,6 @@ class HomeFragment : Fragment() {
 
         ngoAdapter = NGOAdapter(ngoList)
 
-        ngoAdapter.setItemClickListener(object : NGOAdapter.OnItemClickListener{
-            override fun onClick(position: Int) {
-                val intent = Intent(activity, NGODetailPage::class.java)
-                intent.putExtra("name", ngoList[position].name)
-                intent.putExtra("type", ngoList[position].ngoType)
-                intent.putExtra("phoneNo", ngoList[position].phoneNo)
-                intent.putExtra("email", ngoList[position].emailId)
-                intent.putExtra("website",ngoList[position].ngoWeb)
-                startActivity(intent)
-            }
-
-        })
-        rvNGOs.adapter = ngoAdapter
-
         dbRef.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 ngoList.clear()
@@ -76,6 +62,7 @@ class HomeFragment : Fragment() {
                             intent.putExtra("phoneNo", ngoList[position].phoneNo)
                             intent.putExtra("email", ngoList[position].emailId)
                             intent.putExtra("website",ngoList[position].ngoWeb)
+                            intent.putExtra("image", ngoList[position].ngoImage)
                             startActivity(intent)
                         }
 
@@ -89,11 +76,6 @@ class HomeFragment : Fragment() {
             }
 
         })
-
-
-
-
-
 
 
 

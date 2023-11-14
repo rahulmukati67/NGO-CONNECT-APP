@@ -58,7 +58,7 @@ dependencies {
     implementation ("com.google.android.gms:play-services-auth:20.7.0")
     implementation ("com.airbnb.android:lottie:6.1.0")
     implementation ("de.hdodenhof:circleimageview:3.1.0")
-    implementation ("com.sun.mail:android-mail:1.6.4")
-    implementation ("com.sun.mail:android-activation:1.6.4")
+
+    implementation ("com.squareup.picasso:picasso:2.8")
 
 }
