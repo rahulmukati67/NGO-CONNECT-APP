@@ -133,7 +133,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     val intent = Intent(this, MyDonationsActivity::class.java)
                     startActivity(intent)
                 } else {
-                    val intent = Intent(this, RegistrationActivity::class.java)
+                    val intent = Intent(this, LoginActivity::class.java)
                     Toast.makeText(
                         this,
                         "To donate , you have to Register/Login  !",
@@ -149,7 +149,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     val intent = Intent(this, VolunteerActivity::class.java)
                     startActivity(intent)
                 } else {
-                    val intent = Intent(this, RegistrationActivity::class.java)
+                    val intent = Intent(this, LoginActivity::class.java)
                     Toast.makeText(
                         this,
                         "To  join as a volunteer , you have to Register/Login !",

@@ -59,10 +59,11 @@
         app:strokeWidth="4dp" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/btnlogin1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:clickable="true"
         android:background="#EEF6FA"
         android:padding="8dp"
         android:text="@string/login_activity"
