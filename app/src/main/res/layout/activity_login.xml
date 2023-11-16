@@ -9,12 +9,13 @@
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="189dp"
-        android:layout_height="160dp"
+        android:layout_width="250dp"
+        android:layout_height="220dp"
         android:layout_marginTop="75dp"
         android:background="@color/white"
         android:src="@drawable/applogo"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -22,44 +23,45 @@
 
     <Button
         android:id="@+id/btnLoginNgo"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
-        android:text="Login as NGO"
-        android:textColor="@color/white"
-        android:textSize="22dp"
         android:layout_marginLeft="30dp"
+        android:layout_marginTop="65dp"
         android:layout_marginRight="30dp"
+        android:text="@string/login_ngo"
+        android:textColor="@color/white"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8">
-    </Button>
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"></Button>
+
     <Button
         android:id="@+id/btnLoginUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Login as User"
-        android:textColor="@color/white"
-        android:textSize="22dp"
         android:layout_marginLeft="30dp"
+        android:layout_marginTop="22dp"
         android:layout_marginRight="30dp"
+        android:text="@string/login_user"
+        android:textColor="@color/white"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLoginNgo">
-    </Button>
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginNgo"></Button>
 
     <TextView
         android:id="@+id/tvRegistration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:text="Don't Have Account ? click here"
+        android:layout_marginTop="40dp"
+        android:clickable="false"
+        android:text="@string/registration_activity"
+        android:textColor="@color/item_text_color"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="20dp"
-        android:clickable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLoginUser">
 

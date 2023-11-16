@@ -17,12 +17,10 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this , UserRegistrationPage::class.java)
             intent.putExtra("user", "login")
             startActivity(intent)
-            finish()
         }
         binding.btnLoginNgo.setOnClickListener {
             val intent = Intent(this , NgoLoginActivity::class.java)
             startActivity(intent)
-            finish()
         }
 
         binding.tvRegistration.setOnClickListener {

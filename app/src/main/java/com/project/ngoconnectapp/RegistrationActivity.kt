@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import org.w3c.dom.Text
 
 class RegistrationActivity : AppCompatActivity() {
     private lateinit var btnNgoReg: Button
@@ -23,12 +22,10 @@ class RegistrationActivity : AppCompatActivity() {
         btnNgoReg.setOnClickListener {
             val intent = Intent(this, NgoRegistrationPage::class.java)
             startActivity(intent)
-            finish()
         }
         btnUserReg.setOnClickListener {
             val intent = Intent(this, UserRegistrationPage::class.java)
             startActivity(intent)
-            finish()
         }
         btnlogin1.setOnClickListener{
             val intent = Intent(this , LoginActivity::class.java)

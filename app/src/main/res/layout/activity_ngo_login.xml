@@ -8,26 +8,26 @@
     tools:context=".NgoLoginActivity">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="806dp"
         android:layout_marginTop="380dp"
         app:cardBackgroundColor="@color/bg_color"
         app:cardCornerRadius="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="280dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="280dp"
             android:layout_marginRight="20dp"
-            android:text="By logging in, you agree to abide by our terms and conditions. Please review our terms and conditions carefully before proceeding"
-            android:textColor="@color/white"
-            android:textStyle="italic"
             android:layout_marginBottom="50dp"
-            android:textSize="16sp">
+            android:text="@string/terms_conditions"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="italic">
 
         </TextView>
 
@@ -35,21 +35,21 @@
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="411dp"
+        android:layout_width="0dp"
         android:layout_height="175dp"
         android:background="@color/white"
         android:src="@drawable/applogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-    </ImageView>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="250dp"
+        android:layout_width="280dp"
         android:layout_height="350dp"
-        app:cardCornerRadius="50dp"
         android:layout_marginTop="50dp"
-        app:cardBackgroundColor="@color/light_blue"
+        app:cardBackgroundColor="#B2DDFA"
+        app:cardCornerRadius="50dp"
+        app:cardElevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7">
@@ -57,20 +57,21 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_margin="20dp">
+            android:layout_margin="25dp"
+            android:orientation="vertical">
 
             <EditText
                 android:id="@+id/etEmailLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email address"
-                android:layout_marginLeft="20dp"
                 android:layout_marginTop="50dp"
-                android:textSize="16sp"
-                android:textColorHint="@color/black_shade"
+                android:hint="@string/emailStr"
+                android:inputType="text|textEmailAddress"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"
                 android:textColor="@color/black"
-                >
+                android:textColorHint="@color/dark_grey"
+                android:textSize="16sp">
 
             </EditText>
 
@@ -78,13 +79,14 @@
                 android:id="@+id/etPasswordLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:textSize="16sp"
                 android:layout_marginTop="30dp"
-                android:textColorHint="@color/black"
-                android:hint="Password"
-                android:textColor="@color/black_shade"
-                >
+                android:hint="@string/create_psswd"
+                android:inputType="text|textPassword"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/dark_grey"
+                android:textSize="16sp">
 
             </EditText>
 
@@ -92,14 +94,13 @@
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_gravity="center"
-                android:textColor="@color/white"
-                android:textSize="20sp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="20dp"
                 android:text="Login"
-                >
+                android:textColor="@color/white"
+                android:textSize="20sp">
 
             </Button>
 
