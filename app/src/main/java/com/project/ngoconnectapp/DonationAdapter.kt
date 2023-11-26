@@ -6,18 +6,18 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class DonationAdapter (private var DonationList :ArrayList<Donation_Data>) :
+class DonationAdapter (private var donationList : ArrayList<Donation_Data>) :
     RecyclerView.Adapter<DonationAdapter.DonationViewHolder>() {
 
     inner class DonationViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-       val D_amount : TextView
-       val D_date :TextView
-       val D_time :TextView
+       val dAmount : TextView
+       val dDate :TextView
+       val dTime :TextView
 
        init {
-           D_amount = itemView.findViewById(R.id.d_amount)
-           D_date = itemView.findViewById(R.id.d_date)
-           D_time = itemView.findViewById(R.id.d_Time)
+           dAmount = itemView.findViewById(R.id.d_amount)
+           dDate = itemView.findViewById(R.id.d_date)
+           dTime = itemView.findViewById(R.id.d_Time)
 
        }
 
@@ -29,12 +29,12 @@ class DonationAdapter (private var DonationList :ArrayList<Donation_Data>) :
     }
 
     override fun getItemCount(): Int {
-        return DonationList.size
+        return donationList.size
     }
 
     override fun onBindViewHolder(holder: DonationViewHolder, position: Int) {
-        holder.D_amount.text = DonationList[position].D_amount
-        holder.D_date.text = DonationList[position].D_date.toString()
-        holder.D_time.text = DonationList[position].D_time.toString()
+        holder.dAmount.text = donationList[position].d_amount.toString()
+        holder.dDate.text = donationList[position].d_date.toString()
+        holder.dTime.text = donationList[position].d_time.toString()
     }
 }

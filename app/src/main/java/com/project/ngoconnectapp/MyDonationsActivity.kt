@@ -4,8 +4,6 @@ import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
-import android.text.format.Time
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -30,23 +28,20 @@ class MyDonationsActivity : AppCompatActivity() {
 
         database = FirebaseDatabase.getInstance()
         auth = FirebaseAuth.getInstance()
+        val dbRef = database.getReference("Donations").child(auth.currentUser?.uid!!)
+
 
         binding.btnDonate.setOnClickListener {
-            val amount = binding.donationAmount.text.toString()
-            val time = LocalTime.now().toString()
+            val amount ="Rs. " + binding.donationAmount.text.toString() + " /-"
+            val time = " ${LocalTime.now().hour} : ${LocalTime.now().minute} : ${LocalTime.now().second} "
             val date = LocalDate.now().toString()
             val donate = Donation_Data(amount, date, time)
 
-            database.getReference("Donations").child(auth.currentUser?.uid!!).setValue(amount)
+            dbRef.child("$date $time").setValue(donate)
                 .addOnCompleteListener { task ->
                     val builder = AlertDialog.Builder(this@MyDonationsActivity)
 
                     if (task.isSuccessful) {
-                        Toast.makeText(
-                            this@MyDonationsActivity,
-                            "Successfully wrote data to Firebase",
-                            Toast.LENGTH_SHORT
-                        ).show()
 
                         builder.setTitle("Thanks")
                         builder.setMessage("You have Successfully Donated : Rs. $amount")
@@ -54,11 +49,6 @@ class MyDonationsActivity : AppCompatActivity() {
                             dialogInterface.dismiss()
                         }
                     } else {
-                        Toast.makeText(
-                            this@MyDonationsActivity,
-                            "Failed to write data to Firebase",
-                            Toast.LENGTH_SHORT
-                        ).show()
 
                         builder.setTitle("Error")
                         builder.setMessage("Something went wrong please try again later")
@@ -70,11 +60,7 @@ class MyDonationsActivity : AppCompatActivity() {
                     val alertDialog = builder.create()
                     alertDialog.show()
                     alertDialog.window?.setBackgroundDrawable(
-                        ColorDrawable(
-                            ContextCompat.getColor(
-                                this,
-                                R.color.white
-                            )
+                        ColorDrawable(ContextCompat.getColor(this, R.color.white )
                         )
                     )
                 }
