@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:imeOptions">actionSearch</item>
+        <item name="android:inputType">text</item>
+        <item name="android:queryHint">Search Here ...</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+</resources>

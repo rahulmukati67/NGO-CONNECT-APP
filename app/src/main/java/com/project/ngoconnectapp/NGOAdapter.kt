@@ -12,6 +12,7 @@ class NGOAdapter(private var ngoList: ArrayList<Ngo_data>) : RecyclerView.Adapte
     private lateinit var mListener : OnItemClickListener
 
     inner class NgoViewHolder(itemView:View, listener : OnItemClickListener) : RecyclerView.ViewHolder(itemView){
+
         val name : TextView
         val  type : TextView
         val imgNgo : ImageView
@@ -40,6 +41,10 @@ class NGOAdapter(private var ngoList: ArrayList<Ngo_data>) : RecyclerView.Adapte
             Picasso.get().load(ngoList[position].ngoImage).into(holder.imgNgo)
         }
 
+    }
+    fun updateList(newList: List<Ngo_data>) {
+        ngoList = newList as ArrayList<Ngo_data>
+        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int {

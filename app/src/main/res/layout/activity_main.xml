@@ -24,15 +24,16 @@
             android:elevation="10dp"
             app:title=" ">
 
-            <EditText
+            <TextView
                 android:id="@+id/etSearch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/edittext_rounded_corners"
                 android:ems="10"
+                android:textColor="@color/white"
+                android:textStyle="bold"
                 android:gravity="center"
-                android:hint="@string/search"
+                android:text="NGO CONNECT APP"
                 android:inputType="text"
                 android:paddingTop="10dp"
                 android:paddingBottom="12dp"
