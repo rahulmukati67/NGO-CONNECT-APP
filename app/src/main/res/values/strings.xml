@@ -4,7 +4,7 @@
     <string name="user_ngo">Register as User</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
-    <string name="search">Search here</string>
+    <string name="search">Search Here...</string>
     <string name="googleSignIn">Sign in with Google</string>
     <string name="otp">Send Otp</string>
     <string name="resendotp">Resend OTP after 60 seconds</string>

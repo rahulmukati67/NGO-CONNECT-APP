@@ -1,8 +1,11 @@
+package com.project.ngoconnectapp
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -11,10 +14,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import com.project.ngoconnectapp.NGOAdapter
-import com.project.ngoconnectapp.NGODetailPage
-import com.project.ngoconnectapp.Ngo_data
-import com.project.ngoconnectapp.R
 
 class HomeFragment : Fragment() {
 
@@ -81,6 +80,8 @@ class HomeFragment : Fragment() {
         inflater.inflate(R.menu.toolbar_menu, menu)
         val searchItem = menu.findItem(R.id.action_search)
         searchView = searchItem.actionView as SearchView
+        searchView.queryHint = getString(R.string.search)
+        searchView.setBackgroundColor(ContextCompat.getColor(activity?.applicationContext!!,R.color.white))
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -100,7 +101,8 @@ class HomeFragment : Fragment() {
         filteredNgoList.clear()
         if (!query.isNullOrBlank()) {
             for (ngo in ngoList) {
-                if (ngo.name?.toLowerCase()?.contains(query.toLowerCase()) == true) {
+                if (ngo.name?.lowercase()!!.contains(query.lowercase()) ||
+                    ngo.ngoType?.lowercase()!!.contains(query.lowercase())) {
                     filteredNgoList.add(ngo)
                 }
             }

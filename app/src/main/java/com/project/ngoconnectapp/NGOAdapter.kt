@@ -42,8 +42,8 @@ class NGOAdapter(private var ngoList: ArrayList<Ngo_data>) : RecyclerView.Adapte
         }
 
     }
-    fun updateList(newList: List<Ngo_data>) {
-        ngoList = newList as ArrayList<Ngo_data>
+    fun updateList(newList: ArrayList<Ngo_data>) {
+        ngoList = newList
         notifyDataSetChanged()
     }
 

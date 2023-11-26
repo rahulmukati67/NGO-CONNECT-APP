@@ -18,8 +18,8 @@ class DonationList : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_donation_list)
 
-        val database = FirebaseDatabase.getInstance()
         auth = FirebaseAuth.getInstance()
+        val database = FirebaseDatabase.getInstance()
         val dbRef =  database.getReference("Donations").child(auth.currentUser?.uid.toString())
 
         val donationList = arrayListOf<Donation_Data>()
