@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
+import android.widget.Toast
 import com.project.ngoconnectapp.databinding.ActivityVolunteerBinding
 
 class VolunteerActivity : AppCompatActivity() {
@@ -17,17 +18,23 @@ class VolunteerActivity : AppCompatActivity() {
 
 
         binding.btnVolSubmit.setOnClickListener {
-            val intent = Intent(Intent.ACTION_SEND)
+
             val volName = binding.volName.text.toString()
             val volEmail = binding.volEmail.text.toString()
             val volPhoneNumber= binding.volPhoneNumber.text.toString()
             val volExperience = binding.volExperience.text.toString()
             val volsNGoInfo = binding.volsNGoInfo.text.toString()
             val volJoinDate = binding.volJoinDate.text.toString()
-            val recipients = arrayOf(binding.volsNgoEmail.text.toString())
 
-            val emailSubject = "Volunteering Application"
-            val emailBody = """
+            if(volName.isNotEmpty() && volEmail.isNotEmpty() && volPhoneNumber.isNotEmpty() &&
+                volExperience.isNotEmpty() && volsNGoInfo.isNotEmpty() && volJoinDate.isNotEmpty())
+            {
+
+                val intent = Intent(Intent.ACTION_SEND)
+                val recipients = arrayOf(binding.volsNgoEmail.text.toString())
+
+                val emailSubject = "Volunteering Application"
+                val emailBody = """
               
             
 
@@ -57,12 +64,19 @@ class VolunteerActivity : AppCompatActivity() {
             """
 
 
-            intent.type = "text/html"
-            intent.putExtra(Intent.EXTRA_EMAIL, recipients)
-            intent.putExtra(Intent.EXTRA_SUBJECT, emailSubject)
-            intent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(emailBody))
-            intent.setPackage("com.google.android.gm")
-            startActivity(Intent.createChooser(intent, "Send email.."))
+                intent.type = "text/html"
+                intent.putExtra(Intent.EXTRA_EMAIL, recipients)
+                intent.putExtra(Intent.EXTRA_SUBJECT, emailSubject)
+                intent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(emailBody))
+                intent.setPackage("com.google.android.gm")
+                startActivity(Intent.createChooser(intent, "Send email.."))
+
+            }
+            else{
+                Toast.makeText(this , "These are all required Fields",Toast.LENGTH_SHORT).show()
+            }
+
+
         }
 
 

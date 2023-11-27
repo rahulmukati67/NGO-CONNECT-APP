@@ -82,8 +82,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/about_app"
                 android:textColor="@color/black_shade"
-                android:textSize="18sp"
-                android:textStyle="italic">
+                android:textSize="18sp">
 
             </TextView>
 
@@ -128,8 +127,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/our_mission"
                 android:textColor="@color/black_shade"
-                android:textSize="18sp"
-                android:textStyle="italic">
+                android:textSize="18sp">
 
             </TextView>
 
