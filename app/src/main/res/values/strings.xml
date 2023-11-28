@@ -60,4 +60,6 @@
     <string name="upload_image">Please Upload an Image of your NGO </string>
     <string name="terms_conditions">By logging in, you agree to abide by our terms and conditions. Please review our terms and conditions carefully before proceeding </string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="empty">Nothing to Show !</string>
 </resources>

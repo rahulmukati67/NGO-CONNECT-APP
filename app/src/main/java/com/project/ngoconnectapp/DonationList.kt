@@ -1,6 +1,8 @@
 package com.project.ngoconnectapp
 
 import android.os.Bundle
+import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,6 +29,7 @@ class DonationList : AppCompatActivity() {
 
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
+        val tvEmpty = findViewById<TextView>(R.id.tvEmpty)
 
         dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -39,6 +42,13 @@ class DonationList : AppCompatActivity() {
                     donationAdapter = DonationAdapter(donationList)
                     recyclerView.adapter = donationAdapter
                 }
+                if(donationList.isEmpty()){
+                    tvEmpty.visibility = View.VISIBLE
+                }
+                else{
+                    tvEmpty.visibility = View.INVISIBLE
+                }
+
             }
 
             override fun onCancelled(error: DatabaseError) {

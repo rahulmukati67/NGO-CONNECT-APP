@@ -10,7 +10,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="806dp"
-        android:layout_marginTop="380dp"
+        android:layout_marginTop="390dp"
         app:cardBackgroundColor="@color/bg_color"
         app:cardCornerRadius="80dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,18 +35,20 @@
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="0dp"
-        android:layout_height="175dp"
+        android:layout_width="280dp"
+        android:layout_height="195dp"
+        android:layout_marginStart="20dp"
         android:background="@color/white"
+        android:scaleType="centerCrop"
         android:src="@drawable/applogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="280dp"
         android:layout_height="350dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         app:cardBackgroundColor="#B2DDFA"
         app:cardCornerRadius="50dp"
         app:cardElevation="10dp"

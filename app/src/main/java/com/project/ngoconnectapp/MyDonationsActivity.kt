@@ -113,6 +113,7 @@ class MyDonationsActivity : AppCompatActivity() {
                         ColorDrawable(ContextCompat.getColor(this, R.color.white )
                         )
                     )
+
                 }
 
         }
@@ -120,5 +121,6 @@ class MyDonationsActivity : AppCompatActivity() {
             Toast.makeText(this , "Donation Unsuccessful , Please Try Again !", Toast.LENGTH_SHORT).show()
         }
 
+        binding.donationAmount.text!!.clear()
     }
 }
