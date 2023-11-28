@@ -1,10 +1,10 @@
 package com.project.ngoconnectapp
 
 
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
@@ -79,20 +79,32 @@ class NgoRegistrationPage : AppCompatActivity() {
                                 startActivity(intent)
 
                             }.addOnFailureListener {exception ->
-                                Toast.makeText(this, exception.message.toString(),Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(
+                                        this,
+                                        exception.message.toString(),
+                                        Toast.LENGTH_SHORT
+                                    ).show()
                             }
-
                         }
-                        else{
-                            Toast.makeText(this , it.exception.toString(),Toast.LENGTH_SHORT).show()
+                        else {
+                            if (it.exception?.message?.toLowerCase().toString()
+                                    .contains("password")
+                            ) {
+                                Toast.makeText(this, "Password Too Weak ...", Toast.LENGTH_LONG)
+                                    .show()
+                            } else if (it.exception?.message?.toLowerCase().toString()
+                                    .contains("email")
+                            ) {
+                                Toast.makeText(this, "Invalid Email Or Account Already Created", Toast.LENGTH_LONG)
+                                    .show()
+                            }
+                                else {
+                                    Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT)
+                                        .show()
+                                }
                         }
                     }
-
             }
-
-
         }
-
-
     }
 }
