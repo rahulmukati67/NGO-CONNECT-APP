@@ -108,8 +108,8 @@ class OtpActivity : AppCompatActivity() {
             storedVerificationId = verificationId
             resendToken = token
             binding.progressBar2.visibility = View.INVISIBLE
-            binding.btnverify.isEnabled
             Toast.makeText(this@OtpActivity, "Code sent to $number", Toast.LENGTH_SHORT).show()
+            binding.btnverify.isEnabled = true
         }
     }
 
