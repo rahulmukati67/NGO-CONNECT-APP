@@ -22,7 +22,7 @@
     <string name="form">Volunteer Form</string>
     <string name="enter_name">Enter Your Name</string>
     <string name="enter_email">Enter Your Email</string>
-    <string name="enter_number">Enter Your Name</string>
+    <string name="enter_number">Enter Your Number</string>
     <string name="work_exp">Old Age Homes , Orphanage</string>
     <string name="worked_before">Have You Worked Before? If Yes, Please mention it.</string>
     <string name="know_ngo">From where did you get to know about this NGO ?</string>
@@ -37,7 +37,7 @@
     <string name="websiteStr">Website</string>
 
     <string name="about_us">About Us</string>
-    <string name="about_app">Welcome to NGO Connect App  – A testament to passion, innovation, and a shared commitment to making a difference.Founded by Android developer , Shrushti Nagar and Rahul Mukati ,NGO Connect is more than just an app; it\'s a bridge connecting individuals with the noble cause of philanthropy.</string>
+    <string name="about_app">Welcome to NGO Connect App  – A testament to passion, innovation, and a shared commitment to making a difference. Founded by Shrushti Nagar and Co-founder Rahul Mukati ,NGO Connect is more than just an app; it\'s a bridge connecting individuals with the noble cause of philanthropy.</string>
     <string name="our_mission">At NGO Connect, our mission is clear : To bridge the gap between those who wish to donate, seek help, or volunteer and the deserving NGOs that make a positive impact on our world. We believe in the power of technology to amplify acts of kindness and streamline the process of connecting those who want to make a difference with organizations that need their support . </string>
     <string name="rahul_bio">A passionate Android Developer who excels at UI/UX designing and give creative outlook to the ideas. I am an Upcoming Software Engineer with utmost potential to make a difference with my strong creative skills.</string>
     <string name="shrushti_bio">An Enthusiastic Android Developer proficient in Kotlin. Approaching Software Engineer, who is poised with ideas and a blend of innovation, courage and unwavering commitment to transform these ideas into digital realities.</string>
